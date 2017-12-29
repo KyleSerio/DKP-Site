@@ -4,70 +4,88 @@
 #include<math.h>
 #include<fstream>
 #include<list>
-#include "raidDump.h"
+#include "raid.h" // + playerDump.h
+#include "player.h"
+#include "item.h"
+#include "sqlite3.h"
+//#include "Commdlg.h"
+#ifndef NOMINMAX
+#define NOMINMAX
+#endif
+#include <windows.h>
 using namespace std;
 
-struct player
-{
-	string name = "0";
-	int level = 0;
-	string charClass = "0";
-	int dkp = 0;
-	int dkpTotal = 0;
-	int dkpSpent = 0;
-	float attendance = 0;
-	int checks = 0;
-};
+int callbackitem(void *data, int argc, char **argv, char **azColName);
+int callbackraid(void *data, int argc, char **argv, char **azColName);
+int callbackdump(void *data, int argc, char **argv, char **azColName);
+int callbackno(void *data, int argc, char **argv, char **azColName);
 
-struct item
-{
-	string name;
-	int cost;
-	string buyer;
-	int date;
-};
 
-struct raids
-{
-	int date; //MMDDYYYY Format
-	list<raidDump> raidNight;
-};
 
-class database : public raidDump
+class database : public item, public player, public raid
 {
 public:
 	//Functions
-	void addPlayer(int newNum, string newName, int newLevel, string newClass, string newFlag);
-	void printRaid(string fileName);
-	raidDump raidList[100];
-	list<raids> raidNights;
 	void update();
+	void mainMenu();
+
+	void accessPlayer();
+	void accessItem();
+	void accessRaid();
+
+	void addPlayer();
+	bool addPlayer(string newName, string newClass, int newLevel);
+	void addItem();
+	void addRaid();
+
+	void removePlayer();
+	void removeItem();
+	void removeRaid();
+
+	void viewPlayer();
+	void viewItem();
+	void viewRaid();
+
+	void updatePlayer();
+	void updateItem();
+	void updateRaid();
 
 
-	//Getters
-	int raidTotal();
-	int itemTotal();
-	int playerTotal();
+	void printPlayers();
+	void printItems();
+	void printRaids();
 
-	//Setters
-	void incRaid();
+	void printItem(string name);
 
+	void printPlayer(string name);
+	void printPlayerItems(string name);
+	void printPlayerRaids(string name);
+
+	void printDumps();
+
+	void parseDump(char* fileName);
+
+
+	//Incrementers/Decrementers
+	//**************************
+	void incPlayerCount();
+	void decPlayerCount();
+	void incItemCount();
+	//**************************
 
 	database();
 	~database();
 
 private:
 
-	//Relationals
-	list<player> raiders;
-	//player raiders[100];
-	item items[1000];
-
-	//Inner-Counters
 	int playerCount;
-	int itemCount;
+	int itemCount;	
 	int raidCount;
 
-
+	char *zErrMsg = 0;
+	sqlite3 *db;
+	int check;
+	char* sql;
+	string stats = "C:\\Users\\Kyle\\source\\repos\\DKP Program\\SumCodeMang\\stats.txt";
 };
 

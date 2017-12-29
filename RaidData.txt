@@ -4384,3 +4384,1371 @@ Enchanters: 1
 Total Raiders: 56
 --------------------------------------------------
 
+Group --- Name ----- Level --- Class --- Flagged?
+
+1   Matt   68   Warrior  Yes
+1   Kyle   68   Cleric  No
+1   Charlie   68   Rogue  Yes
+1   Allen   68   Magician  Yes
+
+2   Tiffany   68   Wizard  Yes
+2   Aliari   68   Enchanter  Yes
+2   Yolanda   68   Paladin  Yes
+
+3   Dickbutt   68   Necromancer  Yes
+3   Venalin   68   Shadowknight  Yes
+
+4   Extra1   70   Ranger  Yes
+4   Extra2   70   Ranger  Yes
+4   Extra3   70   Ranger  Yes
+4   Extra4   70   Ranger  Yes
+4   Extra5   70   Ranger  Yes
+4   Extra6   70   Ranger  Yes
+
+5   Extra7   70   Ranger  Yes
+5   Extra8   70   Ranger  Yes
+5   Extra9   70   Ranger  Yes
+5   Extrab1   70   Ranger  Yes
+5   Extrab2   70   Ranger  Yes
+
+6   Extrab3   70   Ranger  Yes
+6   Extrab4   70   Ranger  Yes
+6   Extrab5   70   Ranger  Yes
+6   Extrab6   70   Ranger  Yes
+6   Extrab7   70   Ranger  Yes
+6   Extrab8   70   Ranger  Yes
+
+7   Extrab9   70   Ranger  Yes
+7   Extrac1   70   Ranger  Yes
+7   Extrac2   70   Ranger  Yes
+7   Extrac3   70   Ranger  Yes
+7   Extrac4   70   Ranger  Yes
+7   Extrac5   70   Ranger  Yes
+
+8   Extrac6   70   Ranger  Yes
+8   Extrac7   70   Ranger  Yes
+8   Extrac8   70   Ranger  Yes
+8   Extrac9   70   Ranger  Yes
+8   Extrad1   70   Ranger  Yes
+8   Extrad2   70   Ranger  Yes
+
+9   Extrad3   70   Ranger  Yes
+9   Extrad4   70   Ranger  Yes
+9   Extrad5   70   Ranger  Yes
+9   Extrad6   70   Ranger  Yes
+9   Extrad7   70   Ranger  Yes
+9   Extrad8   70   Ranger  Yes
+
+10   Extrad9   70   Ranger  Yes
+10   Extrae1   70   Ranger  Yes
+10   Extrae2   70   Ranger  Yes
+10   Extrae3   70   Ranger  Yes
+10   Extrae4   70   Ranger  Yes
+10   Extrae5   70   Ranger  Yes
+----------------------------------------------------------
+----------------------------------------------------------
+
+1   Matt   68   Warrior  Yes
+1   Kyle   68   Cleric  No
+1   Charlie   68   Rogue  Yes
+1   Allen   68   Magician  Yes
+
+2   Tiffany   68   Wizard  Yes
+2   Aliari   68   Enchanter  Yes
+2   Yolanda   68   Paladin  Yes
+
+3   Dickbutt   68   Necromancer  Yes
+3   Venalin   68   Shadowknight  Yes
+
+4   Extra1   70   Ranger  Yes
+4   Extra2   70   Ranger  Yes
+4   Extra3   70   Ranger  Yes
+4   Extra4   70   Ranger  Yes
+4   Extra5   70   Ranger  Yes
+4   Extra6   70   Ranger  Yes
+
+5   Extra7   70   Ranger  Yes
+5   Extra8   70   Ranger  Yes
+5   Extra9   70   Ranger  Yes
+5   Extrab1   70   Ranger  Yes
+5   Extrab2   70   Ranger  Yes
+
+6   Extrab3   70   Ranger  Yes
+6   Extrab4   70   Ranger  Yes
+6   Extrab5   70   Ranger  Yes
+6   Extrab6   70   Ranger  Yes
+6   Extrab7   70   Ranger  Yes
+6   Extrab8   70   Ranger  Yes
+
+7   Extrab9   70   Ranger  Yes
+7   Extrac1   70   Ranger  Yes
+7   Extrac2   70   Ranger  Yes
+7   Extrac3   70   Ranger  Yes
+7   Extrac4   70   Ranger  Yes
+7   Extrac5   70   Ranger  Yes
+
+8   Extrac6   70   Ranger  Yes
+8   Extrac7   70   Ranger  Yes
+8   Extrac8   70   Ranger  Yes
+8   Extrac9   70   Ranger  Yes
+8   Extrad1   70   Ranger  Yes
+8   Extrad2   70   Ranger  Yes
+
+9   Extrad3   70   Ranger  Yes
+9   Extrad4   70   Ranger  Yes
+9   Extrad5   70   Ranger  Yes
+9   Extrad6   70   Ranger  Yes
+9   Extrad7   70   Ranger  Yes
+9   Extrad8   70   Ranger  Yes
+
+10   Extrad9   70   Ranger  Yes
+10   Extrae1   70   Ranger  Yes
+10   Extrae2   70   Ranger  Yes
+10   Extrae3   70   Ranger  Yes
+10   Extrae4   70   Ranger  Yes
+10   Extrae5   70   Ranger  Yes
+----------------------------------------------------------
+----------------------------------------------------------
+
+1   Matt   68   Warrior  Yes
+1   Kyle   68   Cleric  No
+1   Charlie   68   Rogue  Yes
+1   Allen   68   Magician  Yes
+
+2   Tiffany   68   Wizard  Yes
+2   Aliari   68   Enchanter  Yes
+2   Yolanda   68   Paladin  Yes
+
+3   Dickbutt   68   Necromancer  Yes
+3   Venalin   68   Shadowknight  Yes
+
+4   Extra1   70   Ranger  Yes
+4   Extra2   70   Ranger  Yes
+4   Extra3   70   Ranger  Yes
+4   Extra4   70   Ranger  Yes
+4   Extra5   70   Ranger  Yes
+4   Extra6   70   Ranger  Yes
+
+5   Extra7   70   Ranger  Yes
+5   Extra8   70   Ranger  Yes
+5   Extra9   70   Ranger  Yes
+5   Extrab1   70   Ranger  Yes
+5   Extrab2   70   Ranger  Yes
+
+6   Extrab3   70   Ranger  Yes
+6   Extrab4   70   Ranger  Yes
+6   Extrab5   70   Ranger  Yes
+6   Extrab6   70   Ranger  Yes
+6   Extrab7   70   Ranger  Yes
+6   Extrab8   70   Ranger  Yes
+
+7   Extrab9   70   Ranger  Yes
+7   Extrac1   70   Ranger  Yes
+7   Extrac2   70   Ranger  Yes
+7   Extrac3   70   Ranger  Yes
+7   Extrac4   70   Ranger  Yes
+7   Extrac5   70   Ranger  Yes
+
+8   Extrac6   70   Ranger  Yes
+8   Extrac7   70   Ranger  Yes
+8   Extrac8   70   Ranger  Yes
+8   Extrac9   70   Ranger  Yes
+8   Extrad1   70   Ranger  Yes
+8   Extrad2   70   Ranger  Yes
+
+9   Extrad3   70   Ranger  Yes
+9   Extrad4   70   Ranger  Yes
+9   Extrad5   70   Ranger  Yes
+9   Extrad6   70   Ranger  Yes
+9   Extrad7   70   Ranger  Yes
+9   Extrad8   70   Ranger  Yes
+
+10   Extrad9   70   Ranger  Yes
+10   Extrae1   70   Ranger  Yes
+10   Extrae2   70   Ranger  Yes
+10   Extrae3   70   Ranger  Yes
+10   Extrae4   70   Ranger  Yes
+10   Extrae5   70   Ranger  Yes
+----------------------------------------------------------
+----------------------------------------------------------
+
+1   Matt   68   Warrior  Yes
+1   Kyle   68   Cleric  No
+1   Charlie   68   Rogue  Yes
+1   Allen   68   Magician  Yes
+
+2   Tiffany   68   Wizard  Yes
+2   Aliari   68   Enchanter  Yes
+2   Yolanda   68   Paladin  Yes
+
+3   Dickbutt   68   Necromancer  Yes
+3   Venalin   68   Shadowknight  Yes
+
+4   Extra1   70   Ranger  Yes
+4   Extra2   70   Ranger  Yes
+4   Extra3   70   Ranger  Yes
+4   Extra4   70   Ranger  Yes
+4   Extra5   70   Ranger  Yes
+4   Extra6   70   Ranger  Yes
+
+5   Extra7   70   Ranger  Yes
+5   Extra8   70   Ranger  Yes
+5   Extra9   70   Ranger  Yes
+5   Extrab1   70   Ranger  Yes
+5   Extrab2   70   Ranger  Yes
+
+6   Extrab3   70   Ranger  Yes
+6   Extrab4   70   Ranger  Yes
+6   Extrab5   70   Ranger  Yes
+6   Extrab6   70   Ranger  Yes
+6   Extrab7   70   Ranger  Yes
+6   Extrab8   70   Ranger  Yes
+
+7   Extrab9   70   Ranger  Yes
+7   Extrac1   70   Ranger  Yes
+7   Extrac2   70   Ranger  Yes
+7   Extrac3   70   Ranger  Yes
+7   Extrac4   70   Ranger  Yes
+7   Extrac5   70   Ranger  Yes
+
+8   Extrac6   70   Ranger  Yes
+8   Extrac7   70   Ranger  Yes
+8   Extrac8   70   Ranger  Yes
+8   Extrac9   70   Ranger  Yes
+8   Extrad1   70   Ranger  Yes
+8   Extrad2   70   Ranger  Yes
+
+9   Extrad3   70   Ranger  Yes
+9   Extrad4   70   Ranger  Yes
+9   Extrad5   70   Ranger  Yes
+9   Extrad6   70   Ranger  Yes
+9   Extrad7   70   Ranger  Yes
+9   Extrad8   70   Ranger  Yes
+
+10   Extrad9   70   Ranger  Yes
+10   Extrae1   70   Ranger  Yes
+10   Extrae2   70   Ranger  Yes
+10   Extrae3   70   Ranger  Yes
+10   Extrae4   70   Ranger  Yes
+10   Extrae5   70   Ranger  Yes
+----------------------------------------------------------
+----------------------------------------------------------
+
+1   Matt   68   Warrior  Yes
+1   Kyle   68   Cleric  No
+1   Charlie   68   Rogue  Yes
+1   Allen   68   Magician  Yes
+
+2   Tiffany   68   Wizard  Yes
+2   Aliari   68   Enchanter  Yes
+2   Yolanda   68   Paladin  Yes
+
+3   Dickbutt   68   Necromancer  Yes
+3   Venalin   68   Shadowknight  Yes
+
+4   Extra1   70   Ranger  Yes
+4   Extra2   70   Ranger  Yes
+4   Extra3   70   Ranger  Yes
+4   Extra4   70   Ranger  Yes
+4   Extra5   70   Ranger  Yes
+4   Extra6   70   Ranger  Yes
+
+5   Extra7   70   Ranger  Yes
+5   Extra8   70   Ranger  Yes
+5   Extra9   70   Ranger  Yes
+5   Extrab1   70   Ranger  Yes
+5   Extrab2   70   Ranger  Yes
+
+6   Extrab3   70   Ranger  Yes
+6   Extrab4   70   Ranger  Yes
+6   Extrab5   70   Ranger  Yes
+6   Extrab6   70   Ranger  Yes
+6   Extrab7   70   Ranger  Yes
+6   Extrab8   70   Ranger  Yes
+
+7   Extrab9   70   Ranger  Yes
+7   Extrac1   70   Ranger  Yes
+7   Extrac2   70   Ranger  Yes
+7   Extrac3   70   Ranger  Yes
+7   Extrac4   70   Ranger  Yes
+7   Extrac5   70   Ranger  Yes
+
+8   Extrac6   70   Ranger  Yes
+8   Extrac7   70   Ranger  Yes
+8   Extrac8   70   Ranger  Yes
+8   Extrac9   70   Ranger  Yes
+8   Extrad1   70   Ranger  Yes
+8   Extrad2   70   Ranger  Yes
+
+9   Extrad3   70   Ranger  Yes
+9   Extrad4   70   Ranger  Yes
+9   Extrad5   70   Ranger  Yes
+9   Extrad6   70   Ranger  Yes
+9   Extrad7   70   Ranger  Yes
+9   Extrad8   70   Ranger  Yes
+
+10   Extrad9   70   Ranger  Yes
+10   Extrae1   70   Ranger  Yes
+10   Extrae2   70   Ranger  Yes
+10   Extrae3   70   Ranger  Yes
+10   Extrae4   70   Ranger  Yes
+10   Extrae5   70   Ranger  Yes
+----------------------------------------------------------
+----------------------------------------------------------
+
+1   Matt   68   Warrior  Yes
+1   Kyle   68   Cleric  No
+1   Charlie   68   Rogue  Yes
+1   Allen   68   Magician  Yes
+
+2   Tiffany   68   Wizard  Yes
+2   Aliari   68   Enchanter  Yes
+2   Yolanda   68   Paladin  Yes
+
+3   Dickbutt   68   Necromancer  Yes
+3   Venalin   68   Shadowknight  Yes
+
+4   Extra1   70   Ranger  Yes
+4   Extra2   70   Ranger  Yes
+4   Extra3   70   Ranger  Yes
+4   Extra4   70   Ranger  Yes
+4   Extra5   70   Ranger  Yes
+4   Extra6   70   Ranger  Yes
+
+5   Extra7   70   Ranger  Yes
+5   Extra8   70   Ranger  Yes
+5   Extra9   70   Ranger  Yes
+5   Extrab1   70   Ranger  Yes
+5   Extrab2   70   Ranger  Yes
+
+6   Extrab3   70   Ranger  Yes
+6   Extrab4   70   Ranger  Yes
+6   Extrab5   70   Ranger  Yes
+6   Extrab6   70   Ranger  Yes
+6   Extrab7   70   Ranger  Yes
+6   Extrab8   70   Ranger  Yes
+
+7   Extrab9   70   Ranger  Yes
+7   Extrac1   70   Ranger  Yes
+7   Extrac2   70   Ranger  Yes
+7   Extrac3   70   Ranger  Yes
+7   Extrac4   70   Ranger  Yes
+7   Extrac5   70   Ranger  Yes
+
+8   Extrac6   70   Ranger  Yes
+8   Extrac7   70   Ranger  Yes
+8   Extrac8   70   Ranger  Yes
+8   Extrac9   70   Ranger  Yes
+8   Extrad1   70   Ranger  Yes
+8   Extrad2   70   Ranger  Yes
+
+9   Extrad3   70   Ranger  Yes
+9   Extrad4   70   Ranger  Yes
+9   Extrad5   70   Ranger  Yes
+9   Extrad6   70   Ranger  Yes
+9   Extrad7   70   Ranger  Yes
+9   Extrad8   70   Ranger  Yes
+
+10   Extrad9   70   Ranger  Yes
+10   Extrae1   70   Ranger  Yes
+10   Extrae2   70   Ranger  Yes
+10   Extrae3   70   Ranger  Yes
+10   Extrae4   70   Ranger  Yes
+10   Extrae5   70   Ranger  Yes
+----------------------------------------------------------
+----------------------------------------------------------
+
+1   Matt   68   Warrior  Yes
+1   Kyle   68   Cleric  No
+1   Charlie   68   Rogue  Yes
+1   Allen   68   Magician  Yes
+
+2   Tiffany   68   Wizard  Yes
+2   Aliari   68   Enchanter  Yes
+2   Yolanda   68   Paladin  Yes
+
+3   Dickbutt   68   Necromancer  Yes
+3   Venalin   68   Shadowknight  Yes
+
+4   Extra1   70   Ranger  Yes
+4   Extra2   70   Ranger  Yes
+4   Extra3   70   Ranger  Yes
+4   Extra4   70   Ranger  Yes
+4   Extra5   70   Ranger  Yes
+4   Extra6   70   Ranger  Yes
+
+5   Extra7   70   Ranger  Yes
+5   Extra8   70   Ranger  Yes
+5   Extra9   70   Ranger  Yes
+5   Extrab1   70   Ranger  Yes
+5   Extrab2   70   Ranger  Yes
+
+6   Extrab3   70   Ranger  Yes
+6   Extrab4   70   Ranger  Yes
+6   Extrab5   70   Ranger  Yes
+6   Extrab6   70   Ranger  Yes
+6   Extrab7   70   Ranger  Yes
+6   Extrab8   70   Ranger  Yes
+
+7   Extrab9   70   Ranger  Yes
+7   Extrac1   70   Ranger  Yes
+7   Extrac2   70   Ranger  Yes
+7   Extrac3   70   Ranger  Yes
+7   Extrac4   70   Ranger  Yes
+7   Extrac5   70   Ranger  Yes
+
+8   Extrac6   70   Ranger  Yes
+8   Extrac7   70   Ranger  Yes
+8   Extrac8   70   Ranger  Yes
+8   Extrac9   70   Ranger  Yes
+8   Extrad1   70   Ranger  Yes
+8   Extrad2   70   Ranger  Yes
+
+9   Extrad3   70   Ranger  Yes
+9   Extrad4   70   Ranger  Yes
+9   Extrad5   70   Ranger  Yes
+9   Extrad6   70   Ranger  Yes
+9   Extrad7   70   Ranger  Yes
+9   Extrad8   70   Ranger  Yes
+
+10   Extrad9   70   Ranger  Yes
+10   Extrae1   70   Ranger  Yes
+10   Extrae2   70   Ranger  Yes
+10   Extrae3   70   Ranger  Yes
+10   Extrae4   70   Ranger  Yes
+10   Extrae5   70   Ranger  Yes
+----------------------------------------------------------
+----------------------------------------------------------
+
+1   Matt   68   Warrior  Yes
+1   Kyle   68   Cleric  No
+1   Charlie   68   Rogue  Yes
+1   Allen   68   Magician  Yes
+
+2   Tiffany   68   Wizard  Yes
+2   Aliari   68   Enchanter  Yes
+2   Yolanda   68   Paladin  Yes
+
+3   Dickbutt   68   Necromancer  Yes
+3   Venalin   68   Shadowknight  Yes
+
+4   Extra1   70   Ranger  Yes
+4   Extra2   70   Ranger  Yes
+4   Extra3   70   Ranger  Yes
+4   Extra4   70   Ranger  Yes
+4   Extra5   70   Ranger  Yes
+4   Extra6   70   Ranger  Yes
+
+5   Extra7   70   Ranger  Yes
+5   Extra8   70   Ranger  Yes
+5   Extra9   70   Ranger  Yes
+5   Extrab1   70   Ranger  Yes
+5   Extrab2   70   Ranger  Yes
+
+6   Extrab3   70   Ranger  Yes
+6   Extrab4   70   Ranger  Yes
+6   Extrab5   70   Ranger  Yes
+6   Extrab6   70   Ranger  Yes
+6   Extrab7   70   Ranger  Yes
+6   Extrab8   70   Ranger  Yes
+
+7   Extrab9   70   Ranger  Yes
+7   Extrac1   70   Ranger  Yes
+7   Extrac2   70   Ranger  Yes
+7   Extrac3   70   Ranger  Yes
+7   Extrac4   70   Ranger  Yes
+7   Extrac5   70   Ranger  Yes
+
+8   Extrac6   70   Ranger  Yes
+8   Extrac7   70   Ranger  Yes
+8   Extrac8   70   Ranger  Yes
+8   Extrac9   70   Ranger  Yes
+8   Extrad1   70   Ranger  Yes
+8   Extrad2   70   Ranger  Yes
+
+9   Extrad3   70   Ranger  Yes
+9   Extrad4   70   Ranger  Yes
+9   Extrad5   70   Ranger  Yes
+9   Extrad6   70   Ranger  Yes
+9   Extrad7   70   Ranger  Yes
+9   Extrad8   70   Ranger  Yes
+
+10   Extrad9   70   Ranger  Yes
+10   Extrae1   70   Ranger  Yes
+10   Extrae2   70   Ranger  Yes
+10   Extrae3   70   Ranger  Yes
+10   Extrae4   70   Ranger  Yes
+10   Extrae5   70   Ranger  Yes
+----------------------------------------------------------
+----------------------------------------------------------
+
+1   Matt   68   Warrior  Yes
+1   Kyle   68   Cleric  No
+1   Charlie   68   Rogue  Yes
+1   Allen   68   Magician  Yes
+
+2   Tiffany   68   Wizard  Yes
+2   Aliari   68   Enchanter  Yes
+2   Yolanda   68   Paladin  Yes
+
+3   Dickbutt   68   Necromancer  Yes
+3   Venalin   68   Shadowknight  Yes
+
+4   Extra1   70   Ranger  Yes
+4   Extra2   70   Ranger  Yes
+4   Extra3   70   Ranger  Yes
+4   Extra4   70   Ranger  Yes
+4   Extra5   70   Ranger  Yes
+4   Extra6   70   Ranger  Yes
+
+5   Extra7   70   Ranger  Yes
+5   Extra8   70   Ranger  Yes
+5   Extra9   70   Ranger  Yes
+5   Extrab1   70   Ranger  Yes
+5   Extrab2   70   Ranger  Yes
+
+6   Extrab3   70   Ranger  Yes
+6   Extrab4   70   Ranger  Yes
+6   Extrab5   70   Ranger  Yes
+6   Extrab6   70   Ranger  Yes
+6   Extrab7   70   Ranger  Yes
+6   Extrab8   70   Ranger  Yes
+
+7   Extrab9   70   Ranger  Yes
+7   Extrac1   70   Ranger  Yes
+7   Extrac2   70   Ranger  Yes
+7   Extrac3   70   Ranger  Yes
+7   Extrac4   70   Ranger  Yes
+7   Extrac5   70   Ranger  Yes
+
+8   Extrac6   70   Ranger  Yes
+8   Extrac7   70   Ranger  Yes
+8   Extrac8   70   Ranger  Yes
+8   Extrac9   70   Ranger  Yes
+8   Extrad1   70   Ranger  Yes
+8   Extrad2   70   Ranger  Yes
+
+9   Extrad3   70   Ranger  Yes
+9   Extrad4   70   Ranger  Yes
+9   Extrad5   70   Ranger  Yes
+9   Extrad6   70   Ranger  Yes
+9   Extrad7   70   Ranger  Yes
+9   Extrad8   70   Ranger  Yes
+
+10   Extrad9   70   Ranger  Yes
+10   Extrae1   70   Ranger  Yes
+10   Extrae2   70   Ranger  Yes
+10   Extrae3   70   Ranger  Yes
+10   Extrae4   70   Ranger  Yes
+10   Extrae5   70   Ranger  Yes
+----------------------------------------------------------
+----------------------------------------------------------
+
+1   Matt   68   Warrior  Yes
+1   Kyle   68   Cleric  No
+1   Charlie   68   Rogue  Yes
+1   Allen   68   Magician  Yes
+
+2   Tiffany   68   Wizard  Yes
+2   Aliari   68   Enchanter  Yes
+2   Yolanda   68   Paladin  Yes
+
+3   Dickbutt   68   Necromancer  Yes
+3   Venalin   68   Shadowknight  Yes
+
+4   Extra1   70   Ranger  Yes
+4   Extra2   70   Ranger  Yes
+4   Extra3   70   Ranger  Yes
+4   Extra4   70   Ranger  Yes
+4   Extra5   70   Ranger  Yes
+4   Extra6   70   Ranger  Yes
+
+5   Extra7   70   Ranger  Yes
+5   Extra8   70   Ranger  Yes
+5   Extra9   70   Ranger  Yes
+5   Extrab1   70   Ranger  Yes
+5   Extrab2   70   Ranger  Yes
+
+6   Extrab3   70   Ranger  Yes
+6   Extrab4   70   Ranger  Yes
+6   Extrab5   70   Ranger  Yes
+6   Extrab6   70   Ranger  Yes
+6   Extrab7   70   Ranger  Yes
+6   Extrab8   70   Ranger  Yes
+
+7   Extrab9   70   Ranger  Yes
+7   Extrac1   70   Ranger  Yes
+7   Extrac2   70   Ranger  Yes
+7   Extrac3   70   Ranger  Yes
+7   Extrac4   70   Ranger  Yes
+7   Extrac5   70   Ranger  Yes
+
+8   Extrac6   70   Ranger  Yes
+8   Extrac7   70   Ranger  Yes
+8   Extrac8   70   Ranger  Yes
+8   Extrac9   70   Ranger  Yes
+8   Extrad1   70   Ranger  Yes
+8   Extrad2   70   Ranger  Yes
+
+9   Extrad3   70   Ranger  Yes
+9   Extrad4   70   Ranger  Yes
+9   Extrad5   70   Ranger  Yes
+9   Extrad6   70   Ranger  Yes
+9   Extrad7   70   Ranger  Yes
+9   Extrad8   70   Ranger  Yes
+
+10   Extrad9   70   Ranger  Yes
+10   Extrae1   70   Ranger  Yes
+10   Extrae2   70   Ranger  Yes
+10   Extrae3   70   Ranger  Yes
+10   Extrae4   70   Ranger  Yes
+10   Extrae5   70   Ranger  Yes
+----------------------------------------------------------
+----------------------------------------------------------
+----- Attendees -----
+Matt   68   Warrior      1
+Kyle   68   Cleric      1
+Charlie   68   Rogue      1
+Allen   68   Magician      1
+Tiffany   68   Wizard      1
+Aliari   68   Enchanter      1
+Yolanda   68   Paladin      1
+Dickbutt   68   Necromancer      1
+Venalin   68   Shadowknight      1
+Extra1   70   Ranger      1
+Extra2   70   Ranger      1
+Extra3   70   Ranger      1
+Extra4   70   Ranger      1
+Extra5   70   Ranger      1
+Extra6   70   Ranger      1
+Extra7   70   Ranger      1
+Extra8   70   Ranger      1
+Extra9   70   Ranger      1
+Extrab1   70   Ranger      1
+Extrab2   70   Ranger      1
+Extrab3   70   Ranger      1
+Extrab4   70   Ranger      1
+Extrab5   70   Ranger      1
+Extrab6   70   Ranger      1
+Extrab7   70   Ranger      1
+Extrab8   70   Ranger      1
+Extrab9   70   Ranger      1
+Extrac1   70   Ranger      1
+Extrac2   70   Ranger      1
+Extrac3   70   Ranger      1
+Extrac4   70   Ranger      1
+Extrac5   70   Ranger      1
+Extrac6   70   Ranger      1
+Extrac7   70   Ranger      1
+Extrac8   70   Ranger      1
+Extrac9   70   Ranger      1
+Extrad1   70   Ranger      1
+Extrad2   70   Ranger      1
+Extrad3   70   Ranger      1
+Extrad4   70   Ranger      1
+Extrad5   70   Ranger      1
+Extrad6   70   Ranger      1
+Extrad7   70   Ranger      1
+Extrad8   70   Ranger      1
+Extrad9   70   Ranger      1
+Extrae1   70   Ranger      1
+Extrae2   70   Ranger      1
+Extrae3   70   Ranger      1
+Extrae4   70   Ranger      1
+Extrae5   70   Ranger      1
+---------------------
+
+--------------- Class Breakdown ------------------
+Tanks:   1 Warriors,   1 Shadowknights, 1 Paladins
+Healers: 1 Clerics,    0 Shaman,        0 Druids
+Melee:   0 Berserkers, 1 Rogues,        0 Monks
+Hybrid:  41 Rangers,    0 Beastlords,    0 Bards
+Casters: 1 Wizards,    1 Necromancers,  1 Magicians
+Enchanters: 1
+Total Raiders: 50
+--------------------------------------------------
+
+Group --- Name ----- Level --- Class --- Flagged?
+
+1   Matt   68   Warrior  Yes
+1   Kyle   68   Cleric  No
+1   Charlie   68   Rogue  Yes
+1   Allen   68   Magician  Yes
+
+2   Tiffany   68   Wizard  Yes
+2   Aliari   68   Enchanter  Yes
+2   Yolanda   68   Paladin  Yes
+
+3   Dickbutt   68   Necromancer  Yes
+3   Venalin   68   Shadowknight  Yes
+
+4   Extra1   70   Ranger  Yes
+4   Extra2   70   Ranger  Yes
+4   Extra3   70   Ranger  Yes
+4   Extra4   70   Ranger  Yes
+4   Extra5   70   Ranger  Yes
+4   Extra6   70   Ranger  Yes
+
+5   Extra7   70   Ranger  Yes
+5   Extra8   70   Ranger  Yes
+5   Extra9   70   Ranger  Yes
+5   Extrab1   70   Ranger  Yes
+5   Extrab2   70   Ranger  Yes
+
+6   Extrab3   70   Ranger  Yes
+6   Extrab4   70   Ranger  Yes
+6   Extrab5   70   Ranger  Yes
+6   Extrab6   70   Ranger  Yes
+6   Extrab7   70   Ranger  Yes
+6   Extrab8   70   Ranger  Yes
+
+7   Extrab9   70   Ranger  Yes
+7   Extrac1   70   Ranger  Yes
+7   Extrac2   70   Ranger  Yes
+7   Extrac3   70   Ranger  Yes
+7   Extrac4   70   Ranger  Yes
+7   Extrac5   70   Ranger  Yes
+
+8   Extrac6   70   Ranger  Yes
+8   Extrac7   70   Ranger  Yes
+8   Extrac8   70   Ranger  Yes
+8   Extrac9   70   Ranger  Yes
+8   Extrad1   70   Ranger  Yes
+8   Extrad2   70   Ranger  Yes
+
+9   Extrad3   70   Ranger  Yes
+9   Extrad4   70   Ranger  Yes
+9   Extrad5   70   Ranger  Yes
+9   Extrad6   70   Ranger  Yes
+9   Extrad7   70   Ranger  Yes
+9   Extrad8   70   Ranger  Yes
+
+10   Extrad9   70   Ranger  Yes
+10   Extrae1   70   Ranger  Yes
+10   Extrae2   70   Ranger  Yes
+10   Extrae3   70   Ranger  Yes
+10   Extrae4   70   Ranger  Yes
+10   Extrae5   70   Ranger  Yes
+----------------------------------------------------------
+----------------------------------------------------------
+
+1   Matt   68   Warrior  Yes
+1   Kyle   68   Cleric  No
+1   Charlie   68   Rogue  Yes
+1   Allen   68   Magician  Yes
+
+2   Tiffany   68   Wizard  Yes
+2   Aliari   68   Enchanter  Yes
+2   Yolanda   68   Paladin  Yes
+
+3   Dickbutt   68   Necromancer  Yes
+3   Venalin   68   Shadowknight  Yes
+
+4   Extra1   70   Ranger  Yes
+4   Extra2   70   Ranger  Yes
+4   Extra3   70   Ranger  Yes
+4   Extra4   70   Ranger  Yes
+4   Extra5   70   Ranger  Yes
+4   Extra6   70   Ranger  Yes
+
+5   Extra7   70   Ranger  Yes
+5   Extra8   70   Ranger  Yes
+5   Extra9   70   Ranger  Yes
+5   Extrab1   70   Ranger  Yes
+5   Extrab2   70   Ranger  Yes
+
+6   Extrab3   70   Ranger  Yes
+6   Extrab4   70   Ranger  Yes
+6   Extrab5   70   Ranger  Yes
+6   Extrab6   70   Ranger  Yes
+6   Extrab7   70   Ranger  Yes
+6   Extrab8   70   Ranger  Yes
+
+7   Extrab9   70   Ranger  Yes
+7   Extrac1   70   Ranger  Yes
+7   Extrac2   70   Ranger  Yes
+7   Extrac3   70   Ranger  Yes
+7   Extrac4   70   Ranger  Yes
+7   Extrac5   70   Ranger  Yes
+
+8   Extrac6   70   Ranger  Yes
+8   Extrac7   70   Ranger  Yes
+8   Extrac8   70   Ranger  Yes
+8   Extrac9   70   Ranger  Yes
+8   Extrad1   70   Ranger  Yes
+8   Extrad2   70   Ranger  Yes
+
+9   Extrad3   70   Ranger  Yes
+9   Extrad4   70   Ranger  Yes
+9   Extrad5   70   Ranger  Yes
+9   Extrad6   70   Ranger  Yes
+9   Extrad7   70   Ranger  Yes
+9   Extrad8   70   Ranger  Yes
+
+10   Extrad9   70   Ranger  Yes
+10   Extrae1   70   Ranger  Yes
+10   Extrae2   70   Ranger  Yes
+10   Extrae3   70   Ranger  Yes
+10   Extrae4   70   Ranger  Yes
+10   Extrae5   70   Ranger  Yes
+----------------------------------------------------------
+----------------------------------------------------------
+
+1   Matt   68   Warrior  Yes
+1   Kyle   68   Cleric  No
+1   Charlie   68   Rogue  Yes
+1   Allen   68   Magician  Yes
+
+2   Tiffany   68   Wizard  Yes
+2   Aliari   68   Enchanter  Yes
+2   Yolanda   68   Paladin  Yes
+
+3   Dickbutt   68   Necromancer  Yes
+3   Venalin   68   Shadowknight  Yes
+
+4   Extra1   70   Ranger  Yes
+4   Extra2   70   Ranger  Yes
+4   Extra3   70   Ranger  Yes
+4   Extra4   70   Ranger  Yes
+4   Extra5   70   Ranger  Yes
+4   Extra6   70   Ranger  Yes
+
+5   Extra7   70   Ranger  Yes
+5   Extra8   70   Ranger  Yes
+5   Extra9   70   Ranger  Yes
+5   Extrab1   70   Ranger  Yes
+5   Extrab2   70   Ranger  Yes
+
+6   Extrab3   70   Ranger  Yes
+6   Extrab4   70   Ranger  Yes
+6   Extrab5   70   Ranger  Yes
+6   Extrab6   70   Ranger  Yes
+6   Extrab7   70   Ranger  Yes
+6   Extrab8   70   Ranger  Yes
+
+7   Extrab9   70   Ranger  Yes
+7   Extrac1   70   Ranger  Yes
+7   Extrac2   70   Ranger  Yes
+7   Extrac3   70   Ranger  Yes
+7   Extrac4   70   Ranger  Yes
+7   Extrac5   70   Ranger  Yes
+
+8   Extrac6   70   Ranger  Yes
+8   Extrac7   70   Ranger  Yes
+8   Extrac8   70   Ranger  Yes
+8   Extrac9   70   Ranger  Yes
+8   Extrad1   70   Ranger  Yes
+8   Extrad2   70   Ranger  Yes
+
+9   Extrad3   70   Ranger  Yes
+9   Extrad4   70   Ranger  Yes
+9   Extrad5   70   Ranger  Yes
+9   Extrad6   70   Ranger  Yes
+9   Extrad7   70   Ranger  Yes
+9   Extrad8   70   Ranger  Yes
+
+10   Extrad9   70   Ranger  Yes
+10   Extrae1   70   Ranger  Yes
+10   Extrae2   70   Ranger  Yes
+10   Extrae3   70   Ranger  Yes
+10   Extrae4   70   Ranger  Yes
+10   Extrae5   70   Ranger  Yes
+----------------------------------------------------------
+----------------------------------------------------------
+
+1   Matt   68   Warrior  Yes
+1   Kyle   68   Cleric  No
+1   Charlie   68   Rogue  Yes
+1   Allen   68   Magician  Yes
+
+2   Tiffany   68   Wizard  Yes
+2   Aliari   68   Enchanter  Yes
+2   Yolanda   68   Paladin  Yes
+
+3   Dickbutt   68   Necromancer  Yes
+3   Venalin   68   Shadowknight  Yes
+
+4   Extra1   70   Ranger  Yes
+4   Extra2   70   Ranger  Yes
+4   Extra3   70   Ranger  Yes
+4   Extra4   70   Ranger  Yes
+4   Extra5   70   Ranger  Yes
+4   Extra6   70   Ranger  Yes
+
+5   Extra7   70   Ranger  Yes
+5   Extra8   70   Ranger  Yes
+5   Extra9   70   Ranger  Yes
+5   Extrab1   70   Ranger  Yes
+5   Extrab2   70   Ranger  Yes
+
+6   Extrab3   70   Ranger  Yes
+6   Extrab4   70   Ranger  Yes
+6   Extrab5   70   Ranger  Yes
+6   Extrab6   70   Ranger  Yes
+6   Extrab7   70   Ranger  Yes
+6   Extrab8   70   Ranger  Yes
+
+7   Extrab9   70   Ranger  Yes
+7   Extrac1   70   Ranger  Yes
+7   Extrac2   70   Ranger  Yes
+7   Extrac3   70   Ranger  Yes
+7   Extrac4   70   Ranger  Yes
+7   Extrac5   70   Ranger  Yes
+
+8   Extrac6   70   Ranger  Yes
+8   Extrac7   70   Ranger  Yes
+8   Extrac8   70   Ranger  Yes
+8   Extrac9   70   Ranger  Yes
+8   Extrad1   70   Ranger  Yes
+8   Extrad2   70   Ranger  Yes
+
+9   Extrad3   70   Ranger  Yes
+9   Extrad4   70   Ranger  Yes
+9   Extrad5   70   Ranger  Yes
+9   Extrad6   70   Ranger  Yes
+9   Extrad7   70   Ranger  Yes
+9   Extrad8   70   Ranger  Yes
+
+10   Extrad9   70   Ranger  Yes
+10   Extrae1   70   Ranger  Yes
+10   Extrae2   70   Ranger  Yes
+10   Extrae3   70   Ranger  Yes
+10   Extrae4   70   Ranger  Yes
+10   Extrae5   70   Ranger  Yes
+----------------------------------------------------------
+----------------------------------------------------------
+
+1   Matt   68   Warrior  Yes
+1   Kyle   68   Cleric  No
+1   Charlie   68   Rogue  Yes
+1   Allen   68   Magician  Yes
+
+2   Tiffany   68   Wizard  Yes
+2   Aliari   68   Enchanter  Yes
+2   Yolanda   68   Paladin  Yes
+
+3   Dickbutt   68   Necromancer  Yes
+3   Venalin   68   Shadowknight  Yes
+
+4   Extra1   70   Ranger  Yes
+4   Extra2   70   Ranger  Yes
+4   Extra3   70   Ranger  Yes
+4   Extra4   70   Ranger  Yes
+4   Extra5   70   Ranger  Yes
+4   Extra6   70   Ranger  Yes
+
+5   Extra7   70   Ranger  Yes
+5   Extra8   70   Ranger  Yes
+5   Extra9   70   Ranger  Yes
+5   Extrab1   70   Ranger  Yes
+5   Extrab2   70   Ranger  Yes
+
+6   Extrab3   70   Ranger  Yes
+6   Extrab4   70   Ranger  Yes
+6   Extrab5   70   Ranger  Yes
+6   Extrab6   70   Ranger  Yes
+6   Extrab7   70   Ranger  Yes
+6   Extrab8   70   Ranger  Yes
+
+7   Extrab9   70   Ranger  Yes
+7   Extrac1   70   Ranger  Yes
+7   Extrac2   70   Ranger  Yes
+7   Extrac3   70   Ranger  Yes
+7   Extrac4   70   Ranger  Yes
+7   Extrac5   70   Ranger  Yes
+
+8   Extrac6   70   Ranger  Yes
+8   Extrac7   70   Ranger  Yes
+8   Extrac8   70   Ranger  Yes
+8   Extrac9   70   Ranger  Yes
+8   Extrad1   70   Ranger  Yes
+8   Extrad2   70   Ranger  Yes
+
+9   Extrad3   70   Ranger  Yes
+9   Extrad4   70   Ranger  Yes
+9   Extrad5   70   Ranger  Yes
+9   Extrad6   70   Ranger  Yes
+9   Extrad7   70   Ranger  Yes
+9   Extrad8   70   Ranger  Yes
+
+10   Extrad9   70   Ranger  Yes
+10   Extrae1   70   Ranger  Yes
+10   Extrae2   70   Ranger  Yes
+10   Extrae3   70   Ranger  Yes
+10   Extrae4   70   Ranger  Yes
+10   Extrae5   70   Ranger  Yes
+----------------------------------------------------------
+----------------------------------------------------------
+
+1   Matt   68   Warrior  Yes
+1   Kyle   68   Cleric  No
+1   Charlie   68   Rogue  Yes
+1   Allen   68   Magician  Yes
+
+2   Tiffany   68   Wizard  Yes
+2   Aliari   68   Enchanter  Yes
+2   Yolanda   68   Paladin  Yes
+
+3   Dickbutt   68   Necromancer  Yes
+3   Venalin   68   Shadowknight  Yes
+
+4   Extra1   70   Ranger  Yes
+4   Extra2   70   Ranger  Yes
+4   Extra3   70   Ranger  Yes
+4   Extra4   70   Ranger  Yes
+4   Extra5   70   Ranger  Yes
+4   Extra6   70   Ranger  Yes
+
+5   Extra7   70   Ranger  Yes
+5   Extra8   70   Ranger  Yes
+5   Extra9   70   Ranger  Yes
+5   Extrab1   70   Ranger  Yes
+5   Extrab2   70   Ranger  Yes
+
+6   Extrab3   70   Ranger  Yes
+6   Extrab4   70   Ranger  Yes
+6   Extrab5   70   Ranger  Yes
+6   Extrab6   70   Ranger  Yes
+6   Extrab7   70   Ranger  Yes
+6   Extrab8   70   Ranger  Yes
+
+7   Extrab9   70   Ranger  Yes
+7   Extrac1   70   Ranger  Yes
+7   Extrac2   70   Ranger  Yes
+7   Extrac3   70   Ranger  Yes
+7   Extrac4   70   Ranger  Yes
+7   Extrac5   70   Ranger  Yes
+
+8   Extrac6   70   Ranger  Yes
+8   Extrac7   70   Ranger  Yes
+8   Extrac8   70   Ranger  Yes
+8   Extrac9   70   Ranger  Yes
+8   Extrad1   70   Ranger  Yes
+8   Extrad2   70   Ranger  Yes
+
+9   Extrad3   70   Ranger  Yes
+9   Extrad4   70   Ranger  Yes
+9   Extrad5   70   Ranger  Yes
+9   Extrad6   70   Ranger  Yes
+9   Extrad7   70   Ranger  Yes
+9   Extrad8   70   Ranger  Yes
+
+10   Extrad9   70   Ranger  Yes
+10   Extrae1   70   Ranger  Yes
+10   Extrae2   70   Ranger  Yes
+10   Extrae3   70   Ranger  Yes
+10   Extrae4   70   Ranger  Yes
+10   Extrae5   70   Ranger  Yes
+----------------------------------------------------------
+----------------------------------------------------------
+
+1   Matt   68   Warrior  Yes
+1   Kyle   68   Cleric  No
+1   Charlie   68   Rogue  Yes
+1   Allen   68   Magician  Yes
+
+2   Tiffany   68   Wizard  Yes
+2   Aliari   68   Enchanter  Yes
+2   Yolanda   68   Paladin  Yes
+
+3   Dickbutt   68   Necromancer  Yes
+3   Venalin   68   Shadowknight  Yes
+
+4   Extra1   70   Ranger  Yes
+4   Extra2   70   Ranger  Yes
+4   Extra3   70   Ranger  Yes
+4   Extra4   70   Ranger  Yes
+4   Extra5   70   Ranger  Yes
+4   Extra6   70   Ranger  Yes
+
+5   Extra7   70   Ranger  Yes
+5   Extra8   70   Ranger  Yes
+5   Extra9   70   Ranger  Yes
+5   Extrab1   70   Ranger  Yes
+5   Extrab2   70   Ranger  Yes
+
+6   Extrab3   70   Ranger  Yes
+6   Extrab4   70   Ranger  Yes
+6   Extrab5   70   Ranger  Yes
+6   Extrab6   70   Ranger  Yes
+6   Extrab7   70   Ranger  Yes
+6   Extrab8   70   Ranger  Yes
+
+7   Extrab9   70   Ranger  Yes
+7   Extrac1   70   Ranger  Yes
+7   Extrac2   70   Ranger  Yes
+7   Extrac3   70   Ranger  Yes
+7   Extrac4   70   Ranger  Yes
+7   Extrac5   70   Ranger  Yes
+
+8   Extrac6   70   Ranger  Yes
+8   Extrac7   70   Ranger  Yes
+8   Extrac8   70   Ranger  Yes
+8   Extrac9   70   Ranger  Yes
+8   Extrad1   70   Ranger  Yes
+8   Extrad2   70   Ranger  Yes
+
+9   Extrad3   70   Ranger  Yes
+9   Extrad4   70   Ranger  Yes
+9   Extrad5   70   Ranger  Yes
+9   Extrad6   70   Ranger  Yes
+9   Extrad7   70   Ranger  Yes
+9   Extrad8   70   Ranger  Yes
+
+10   Extrad9   70   Ranger  Yes
+10   Extrae1   70   Ranger  Yes
+10   Extrae2   70   Ranger  Yes
+10   Extrae3   70   Ranger  Yes
+10   Extrae4   70   Ranger  Yes
+10   Extrae5   70   Ranger  Yes
+----------------------------------------------------------
+----------------------------------------------------------
+
+1   Matt   68   Warrior  Yes
+1   Kyle   68   Cleric  No
+1   Charlie   68   Rogue  Yes
+1   Allen   68   Magician  Yes
+
+2   Tiffany   68   Wizard  Yes
+2   Aliari   68   Enchanter  Yes
+2   Yolanda   68   Paladin  Yes
+
+3   Dickbutt   68   Necromancer  Yes
+3   Venalin   68   Shadowknight  Yes
+
+4   Extra1   70   Ranger  Yes
+4   Extra2   70   Ranger  Yes
+4   Extra3   70   Ranger  Yes
+4   Extra4   70   Ranger  Yes
+4   Extra5   70   Ranger  Yes
+4   Extra6   70   Ranger  Yes
+
+5   Extra7   70   Ranger  Yes
+5   Extra8   70   Ranger  Yes
+5   Extra9   70   Ranger  Yes
+5   Extrab1   70   Ranger  Yes
+5   Extrab2   70   Ranger  Yes
+
+6   Extrab3   70   Ranger  Yes
+6   Extrab4   70   Ranger  Yes
+6   Extrab5   70   Ranger  Yes
+6   Extrab6   70   Ranger  Yes
+6   Extrab7   70   Ranger  Yes
+6   Extrab8   70   Ranger  Yes
+
+7   Extrab9   70   Ranger  Yes
+7   Extrac1   70   Ranger  Yes
+7   Extrac2   70   Ranger  Yes
+7   Extrac3   70   Ranger  Yes
+7   Extrac4   70   Ranger  Yes
+7   Extrac5   70   Ranger  Yes
+
+8   Extrac6   70   Ranger  Yes
+8   Extrac7   70   Ranger  Yes
+8   Extrac8   70   Ranger  Yes
+8   Extrac9   70   Ranger  Yes
+8   Extrad1   70   Ranger  Yes
+8   Extrad2   70   Ranger  Yes
+
+9   Extrad3   70   Ranger  Yes
+9   Extrad4   70   Ranger  Yes
+9   Extrad5   70   Ranger  Yes
+9   Extrad6   70   Ranger  Yes
+9   Extrad7   70   Ranger  Yes
+9   Extrad8   70   Ranger  Yes
+
+10   Extrad9   70   Ranger  Yes
+10   Extrae1   70   Ranger  Yes
+10   Extrae2   70   Ranger  Yes
+10   Extrae3   70   Ranger  Yes
+10   Extrae4   70   Ranger  Yes
+10   Extrae5   70   Ranger  Yes
+----------------------------------------------------------
+----------------------------------------------------------
+
+1   Matt   68   Warrior  Yes
+1   Kyle   68   Cleric  No
+1   Charlie   68   Rogue  Yes
+1   Allen   68   Magician  Yes
+
+2   Tiffany   68   Wizard  Yes
+2   Aliari   68   Enchanter  Yes
+2   Yolanda   68   Paladin  Yes
+
+3   Dickbutt   68   Necromancer  Yes
+3   Venalin   68   Shadowknight  Yes
+
+4   Extra1   70   Ranger  Yes
+4   Extra2   70   Ranger  Yes
+4   Extra3   70   Ranger  Yes
+4   Extra4   70   Ranger  Yes
+4   Extra5   70   Ranger  Yes
+4   Extra6   70   Ranger  Yes
+
+5   Extra7   70   Ranger  Yes
+5   Extra8   70   Ranger  Yes
+5   Extra9   70   Ranger  Yes
+5   Extrab1   70   Ranger  Yes
+5   Extrab2   70   Ranger  Yes
+
+6   Extrab3   70   Ranger  Yes
+6   Extrab4   70   Ranger  Yes
+6   Extrab5   70   Ranger  Yes
+6   Extrab6   70   Ranger  Yes
+6   Extrab7   70   Ranger  Yes
+6   Extrab8   70   Ranger  Yes
+
+7   Extrab9   70   Ranger  Yes
+7   Extrac1   70   Ranger  Yes
+7   Extrac2   70   Ranger  Yes
+7   Extrac3   70   Ranger  Yes
+7   Extrac4   70   Ranger  Yes
+7   Extrac5   70   Ranger  Yes
+
+8   Extrac6   70   Ranger  Yes
+8   Extrac7   70   Ranger  Yes
+8   Extrac8   70   Ranger  Yes
+8   Extrac9   70   Ranger  Yes
+8   Extrad1   70   Ranger  Yes
+8   Extrad2   70   Ranger  Yes
+
+9   Extrad3   70   Ranger  Yes
+9   Extrad4   70   Ranger  Yes
+9   Extrad5   70   Ranger  Yes
+9   Extrad6   70   Ranger  Yes
+9   Extrad7   70   Ranger  Yes
+9   Extrad8   70   Ranger  Yes
+
+10   Extrad9   70   Ranger  Yes
+10   Extrae1   70   Ranger  Yes
+10   Extrae2   70   Ranger  Yes
+10   Extrae3   70   Ranger  Yes
+10   Extrae4   70   Ranger  Yes
+10   Extrae5   70   Ranger  Yes
+----------------------------------------------------------
+----------------------------------------------------------
+
+1   Matt   68   Warrior  Yes
+1   Kyle   68   Cleric  No
+1   Charlie   68   Rogue  Yes
+1   Allen   68   Magician  Yes
+
+2   Tiffany   68   Wizard  Yes
+2   Aliari   68   Enchanter  Yes
+2   Yolanda   68   Paladin  Yes
+
+3   Dickbutt   68   Necromancer  Yes
+3   Venalin   68   Shadowknight  Yes
+
+4   Extra1   70   Ranger  Yes
+4   Extra2   70   Ranger  Yes
+4   Extra3   70   Ranger  Yes
+4   Extra4   70   Ranger  Yes
+4   Extra5   70   Ranger  Yes
+4   Extra6   70   Ranger  Yes
+
+5   Extra7   70   Ranger  Yes
+5   Extra8   70   Ranger  Yes
+5   Extra9   70   Ranger  Yes
+5   Extrab1   70   Ranger  Yes
+5   Extrab2   70   Ranger  Yes
+
+6   Extrab3   70   Ranger  Yes
+6   Extrab4   70   Ranger  Yes
+6   Extrab5   70   Ranger  Yes
+6   Extrab6   70   Ranger  Yes
+6   Extrab7   70   Ranger  Yes
+6   Extrab8   70   Ranger  Yes
+
+7   Extrab9   70   Ranger  Yes
+7   Extrac1   70   Ranger  Yes
+7   Extrac2   70   Ranger  Yes
+7   Extrac3   70   Ranger  Yes
+7   Extrac4   70   Ranger  Yes
+7   Extrac5   70   Ranger  Yes
+
+8   Extrac6   70   Ranger  Yes
+8   Extrac7   70   Ranger  Yes
+8   Extrac8   70   Ranger  Yes
+8   Extrac9   70   Ranger  Yes
+8   Extrad1   70   Ranger  Yes
+8   Extrad2   70   Ranger  Yes
+
+9   Extrad3   70   Ranger  Yes
+9   Extrad4   70   Ranger  Yes
+9   Extrad5   70   Ranger  Yes
+9   Extrad6   70   Ranger  Yes
+9   Extrad7   70   Ranger  Yes
+9   Extrad8   70   Ranger  Yes
+
+10   Extrad9   70   Ranger  Yes
+10   Extrae1   70   Ranger  Yes
+10   Extrae2   70   Ranger  Yes
+10   Extrae3   70   Ranger  Yes
+10   Extrae4   70   Ranger  Yes
+10   Extrae5   70   Ranger  Yes
+----------------------------------------------------------
+----------------------------------------------------------
+----- Attendees -----
+Matt   68   Warrior      1
+Kyle   68   Cleric      1
+Charlie   68   Rogue      1
+Allen   68   Magician      1
+Tiffany   68   Wizard      1
+Aliari   68   Enchanter      1
+Yolanda   68   Paladin      1
+Dickbutt   68   Necromancer      1
+Venalin   68   Shadowknight      1
+Extra1   70   Ranger      1
+Extra2   70   Ranger      1
+Extra3   70   Ranger      1
+Extra4   70   Ranger      1
+Extra5   70   Ranger      1
+Extra6   70   Ranger      1
+Extra7   70   Ranger      1
+Extra8   70   Ranger      1
+Extra9   70   Ranger      1
+Extrab1   70   Ranger      1
+Extrab2   70   Ranger      1
+Extrab3   70   Ranger      1
+Extrab4   70   Ranger      1
+Extrab5   70   Ranger      1
+Extrab6   70   Ranger      1
+Extrab7   70   Ranger      1
+Extrab8   70   Ranger      1
+Extrab9   70   Ranger      1
+Extrac1   70   Ranger      1
+Extrac2   70   Ranger      1
+Extrac3   70   Ranger      1
+Extrac4   70   Ranger      1
+Extrac5   70   Ranger      1
+Extrac6   70   Ranger      1
+Extrac7   70   Ranger      1
+Extrac8   70   Ranger      1
+Extrac9   70   Ranger      1
+Extrad1   70   Ranger      1
+Extrad2   70   Ranger      1
+Extrad3   70   Ranger      1
+Extrad4   70   Ranger      1
+Extrad5   70   Ranger      1
+Extrad6   70   Ranger      1
+Extrad7   70   Ranger      1
+Extrad8   70   Ranger      1
+Extrad9   70   Ranger      1
+Extrae1   70   Ranger      1
+Extrae2   70   Ranger      1
+Extrae3   70   Ranger      1
+Extrae4   70   Ranger      1
+Extrae5   70   Ranger      1
+---------------------
+
+--------------- Class Breakdown ------------------
+Tanks:   1 Warriors,   1 Shadowknights, 1 Paladins
+Healers: 1 Clerics,    0 Shaman,        0 Druids
+Melee:   0 Berserkers, 1 Rogues,        0 Monks
+Hybrid:  41 Rangers,    0 Beastlords,    0 Bards
+Casters: 1 Wizards,    1 Necromancers,  1 Magicians
+Enchanters: 1
+Total Raiders: 50
+--------------------------------------------------
+

@@ -4,7 +4,7 @@
 #include "database.h"
 
 
-void parse(string fileName, database& mainDB, int order)
+void parse(string fileName, database& mainDB, int date) //runs once for each file/dump given to it
 {
 	string flag;
 	string charName;
@@ -13,10 +13,12 @@ void parse(string fileName, database& mainDB, int order)
 	string charClass;
 
 
-	//database raidDump;
-	ifstream readFrom;
 
+
+	ifstream readFrom;
 	readFrom.open(fileName);
+
+	mainDB.newDump();
 
 	while (!readFrom.eof())
 	{
@@ -31,12 +33,13 @@ void parse(string fileName, database& mainDB, int order)
 			readFrom >> flag;
 		}
 
-		mainDB.addPlayer(groupNum, charName, charLevel, charClass, flag);
+		//mainDB.addPlayer();
+
 	}
 
-	cout << mainDB.raidTotal() << " -> ";
-	mainDB.incRaid();
-	cout << mainDB.raidTotal() << endl;
+	cout << mainDB.raidDumps() << " -> ";
+	mainDB.incDumpCount();
+	cout << mainDB.raidDumps() << endl;
 
 	readFrom.close();
 }

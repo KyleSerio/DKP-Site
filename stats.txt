@@ -1,0 +1,3 @@
+items 20
+players 70
+raids 0

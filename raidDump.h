@@ -24,13 +24,12 @@ public:
 	raidDump();
 	~raidDump();
 	group raidGroups[12];
-	//void addPlayer(int newNum, string newName, int newLevel, string newClass, string newFlag);
-	//void printRaid(string fileName);
+
 
 	int date = 0; //MMDDYYYY format
 	int players = 0;
 	int started = 0;
-	int lastNum = 0;
+	int lastGroup = 0;
 	int index = 0;
 	int raidIndex = 0;
 	int groupIndex = 0;
