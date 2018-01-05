@@ -3,5 +3,5 @@
 #include <Commdlg.h>
 
 bool printError;
-OPENFILENAME ofn;
+//OPENFILENAME ofn;
 //char szFile[100];

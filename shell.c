@@ -2993,6 +2993,11 @@ static int shell_callback(
   return 0;
 }
 
+static int callbackshit(void *pArg, int nArg, char **azArg, char **azCol)
+{
+	/* since we don't have type info, call the shell_callback with a NULL value */
+	return shell_callback(pArg, nArg, azArg, azCol, NULL);
+}
 
 static int callbackno(void *pArg, int nArg, char **azArg, char **azCol)
 {

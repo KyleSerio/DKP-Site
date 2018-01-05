@@ -25,9 +25,10 @@ int callback(void *data, int argc, char **argv, char **azColName)
 	int longest = 0;
 	printError = true;
 	string temp;
+	string checkForm;
 
-	//Column Widths I = 0,1,~2,3,4,~5,6,7 = 84 total
-	int column[10] = { 15,8,17,8,9,10,9,8};
+	//Column Widths I = 0,1,~2,3,4,~5,6,7,8 ,9 = 92 total
+	int column[10] = { 15,8,17,8,9,10,9,9,9,5};
 
 	cout << "|| ";
 
@@ -40,17 +41,82 @@ int callback(void *data, int argc, char **argv, char **azColName)
 		{
 			temp = argv[index];
 
-				if (temp.length() < column[index] + 1)
+			if (index == 6)
+			{
+				if (temp.substr(0, 3) == "100")
 				{
-					colWidth = column[index] - temp.length();
-					string spaces(colWidth, ' ');
-					temp += spaces;
+					temp = "0000";
+					temp[0] = argv[index][0];
+					temp[1] = argv[index][1];
+					temp[2] = argv[index][2];
+					temp[3] = '%';
+				}
+				else if (temp.substr(0, 1) == "0")
+				{
+					temp = "00";
+					temp[0] = argv[index][0];
+					temp[1] = '%';
 				}
 				else
 				{
-					temp = temp.substr(0, column[index] - 2);
-					temp += "..";
+					temp = "000";
+					temp[0] = argv[index][0];
+					temp[1] = argv[index][1];
+					temp[2] = '%';
 				}
+
+			}
+			else if (index == 7) //because I havnt implemented lifetime yet
+			{
+				temp = argv[index - 1];
+				if (temp.substr(0, 3) == "100")
+				{
+					temp = "0000";
+					temp[0] = argv[index - 1][0];
+					temp[1] = argv[index - 1][1];
+					temp[2] = argv[index - 1][2];
+					temp[3] = '%';
+				}
+				else if (temp.substr(0, 1) == "0")
+				{
+					temp = "00";
+					temp[0] = argv[index - 1][0];
+					temp[1] = '%';
+				}
+				else
+				{
+					temp = "000";
+					temp[0] = argv[index - 1][0];
+					temp[1] = argv[index - 1][1];
+					temp[2] = '%';
+				}
+			}
+
+			if (temp.length() < column[index] + 1)
+			{
+
+				if (index == 8)
+				{
+					checkForm = temp;
+					checkForm += "/";
+
+					checkForm += argv[index + 1];
+					temp = checkForm;
+				}
+
+				colWidth = column[index] - temp.length();
+				string spaces(colWidth, ' ');
+				temp += spaces;
+
+
+			}
+			else
+			{
+				temp = temp.substr(0, column[index] - 2);
+				temp += "..";
+			}
+
+
 
 		}
 		else
@@ -61,7 +127,11 @@ int callback(void *data, int argc, char **argv, char **azColName)
 				temp += spaces;
 		}
 
-		cout << temp;
+		if (index != 9)
+		{
+			cout << temp;
+		}
+
 
 	}
 

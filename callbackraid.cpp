@@ -50,6 +50,11 @@ int callbackraid(void *data, int argc, char **argv, char **azColName)
 				{
 					string dateForm;
 
+					if (temp.length() < 8)
+					{
+						temp = "0" + temp;
+					}
+
 					for (int index2 = 0; index2 < temp.length(); index2++)
 					{
 						if (index2 == 2 || index2 == 4)

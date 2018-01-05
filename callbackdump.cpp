@@ -24,8 +24,8 @@ int callbackdump(void *data, int argc, char **argv, char **azColName)
 	int longest = 0;
 	printError = true;
 	string temp;
-	//Column Widths = 0,  1,  2,   3   = 84 total
-	int column[10] = { 15, 15, 39, 15};
+	//Column Widths = 0,  1,  2,   3   4  5  = 84 total
+	int column[10] = { 15, 15, 39, 15, 5, 5};
 
 
 	//sql = "CREATE TABLE RAIDDUMP(DATE INT,TIME INT,EVENT TEXT,PLAYER TEXT);";
@@ -50,6 +50,11 @@ int callbackdump(void *data, int argc, char **argv, char **azColName)
 				if (index == 0)
 				{
 					string dateForm;
+
+					if (temp.length() < 8)
+					{
+						temp = "0" + temp;
+					}
 
 					for (int index2 = 0; index2 < temp.length(); index2++)
 					{
@@ -104,7 +109,11 @@ int callbackdump(void *data, int argc, char **argv, char **azColName)
 			temp += spaces;
 		}
 
-		cout << temp;
+		if (index != 5)
+		{
+			cout << temp;
+		}
+
 
 	}
 
