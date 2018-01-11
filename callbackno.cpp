@@ -9,6 +9,7 @@
 using namespace std;
 
 extern bool printError;
+extern string globalString;
 
 //in shell.c - lines 3000 - 3003 : 
 //static int callback(void *pArg, int nArg, char **azArg, char **azCol) {
@@ -18,6 +19,10 @@ extern bool printError;
 
 int callbackno(void *data, int argc, char **argv, char **azColName)
 {
+	if (argc == 1)
+	{
+		globalString = argv[0];
+	}
 
 	printError = false;
 

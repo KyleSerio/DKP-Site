@@ -6,7 +6,6 @@
 #include<vector>
 #include<sstream>
 #include "sqlite3.h"
-#include "Global.h"
 using namespace std;
 
 extern bool printError;
@@ -17,7 +16,7 @@ extern bool printError;
 //	return shell_callback(pArg, nArg, azArg, azCol, NULL);
 //}
 
-int callback(void *data, int argc, char **argv, char **azColName) 
+int callbackplayerinfo(void *data, int argc, char **argv, char **azColName)
 {
 	int index;
 	int colWidth;
@@ -28,20 +27,20 @@ int callback(void *data, int argc, char **argv, char **azColName)
 	string checkForm;
 
 	//Column Widths I = 0,1,~2,3,4,~5,6,7,8 ,9 = 92 total
-	int column[10] = { 15,8,17,8,9,10,9,9,9,5};
+	int column[10] = { 15,15,8,9,10,9,9,9,5 };
 
 	cout << "|| ";
 
 	for (index = 0; index < argc; index++)
 	{
-		
+
 		string temp;
-		
+
 		if (argv[index])
 		{
 			temp = argv[index];
 
-			if (index == 6)
+			if (index == 5)
 			{
 				if (temp.substr(0, 3) == "100")
 				{
@@ -66,7 +65,7 @@ int callback(void *data, int argc, char **argv, char **azColName)
 				}
 
 			}
-			else if (index == 7) //because I havnt implemented lifetime yet
+			else if (index == 6) //because I havnt implemented lifetime yet
 			{
 				temp = argv[index - 1];
 				if (temp.substr(0, 3) == "100")
@@ -95,7 +94,7 @@ int callback(void *data, int argc, char **argv, char **azColName)
 			if (temp.length() < column[index] + 1)
 			{
 
-				if (index == 8)
+				if (index == 7)
 				{
 					checkForm = temp;
 					checkForm += "/";
@@ -121,13 +120,13 @@ int callback(void *data, int argc, char **argv, char **azColName)
 		}
 		else
 		{
-				temp = "NULL";		
-				colWidth = column[index] - temp.length();
-				string spaces(colWidth, ' ');
-				temp += spaces;
+			temp = "NULL";
+			colWidth = column[index] - temp.length();
+			string spaces(colWidth, ' ');
+			temp += spaces;
 		}
 
-		if (index != 9)
+		if (index != 8)
 		{
 			cout << temp;
 		}
@@ -137,109 +136,8 @@ int callback(void *data, int argc, char **argv, char **azColName)
 
 	cout << "||" << endl;
 	printError = false;
-	
+
 	return 0;
 }
 
 
-//temp += "||";
-//cout << temp;
-
-//int index;
-//int colWidth;
-//int dataWidth = 15;
-//int longest = 0;
-//printError = true;
-//string temp;
-//
-//cout << "||";
-//
-//for (index = 0; index < argc; index++)
-//{
-//
-//	string temp;
-//
-//	if (argv[index])
-//	{
-//		temp = argv[index];
-//
-//		if (index == 0 || index == 2)
-//		{
-//			if (temp.length() < 18)
-//			{
-//				colWidth = 17 - temp.length();
-//				string spaces(colWidth, ' ');
-//				temp += spaces;
-//			}
-//			else
-//			{
-//				temp = temp.substr(0, 15);
-//				temp += "..";
-//			}
-//		}
-//		else
-//		{
-//			if (temp.length() < 6)
-//			{
-//				colWidth = 7 - temp.length();
-//				string spaces(colWidth, ' ');
-//				temp += spaces;
-//
-//			}
-//			else
-//			{
-//				temp = temp.substr(0, 5);
-//				temp += "..";
-//			}
-//
-//		}
-//
-//
-//	}
-//	else
-//	{
-//		if (index == 1 || index > 2)
-//		{
-//			temp = "NULL";
-//
-//			if (index == 4)
-//			{
-//				colWidth = 9 - temp.length();
-//			}
-//			else
-//			{
-//				colWidth = 5 - temp.length();
-//			}
-//
-//			string spaces(colWidth, ' ');
-//			temp += spaces;
-//
-//		}
-//		else
-//		{
-//			temp = "NULL";
-//			colWidth = 17 - temp.length();
-//			string spaces(colWidth, ' ');
-//			temp += spaces;
-//
-//		}
-//	}
-//
-//	cout << temp;
-//
-//	if (index == 3 || index == 4)
-//	{
-//		string tempSpaces(index - 2, ' ');
-//		cout << tempSpaces;
-//	}
-//
-//}
-//
-//temp += "||";
-//cout << temp;
-//printError = false;
-//
-//
-//cout << endl;
-//return 0;
-//}

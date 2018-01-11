@@ -20,6 +20,10 @@ int callbackraid(void *data, int argc, char **argv, char **azColName);
 int callbackdump(void *data, int argc, char **argv, char **azColName);
 int callbackshit(void *data, int argc, char **argv, char **azColName);
 int callbackno(void *data, int argc, char **argv, char **azColName);
+int callbackremovedump(void *data, int argc, char **argv, char **azColName);
+int callbacksingle(void *data, int argc, char **argv, char **azColName);
+int callbackplayerinfo(void *data, int argc, char **argv, char **azColName);
+int callbackdumpsummary(void *data, int argc, char **argv, char **azColName);
 //int callbackshit(void *data, int argc, char **argv, char **azColName);
 
 
@@ -36,17 +40,21 @@ public:
 	void accessRaid();
 
 	void addPlayer();
+	void addPlayer(string newName);
 	bool addPlayer(string newName, string newClass, int newLevel);
 	void addItem();
+	void addItem(int date, string buyer, string item, int dkpVal);
 	void addRaid();
 
 	void removePlayer();
 	void removeItem();
 	void removeRaid();
 
+
 	void viewPlayer();
 	void viewItem();
 	void viewRaid();
+	void viewDumps();
 
 	void updatePlayer();
 	void updateItem();
@@ -55,18 +63,25 @@ public:
 
 	void printPlayers();
 	void printItems();
-	void printRaids();
-
 	void printItem(string name);
+	void printItems(int date);
+
+	void printRaids();
+	void printRaid(int date);
+
+
 
 	void printPlayer(string name);
 	void printPlayerItems(string name);
 	void printPlayerRaids(string name);
 
 	void printDumps();
+	void printDumps(int date);
+	void printDumpSummary(int date);
 
 	void parseDump(string directory,string fileName[],int fileNum);
-
+	void revertDump(int dateVal);
+	void parseLoots(string directory, string fileName[], int fileNum);
 
 	//Incrementers/Decrementers
 	//**************************
@@ -74,6 +89,7 @@ public:
 	void decPlayerCount();
 	void incItemCount();
 	//**************************
+
 
 	database();
 	~database();
@@ -88,7 +104,9 @@ private:
 	sqlite3 *db;
 	int check;
 	char* sql;
+	
 	string stats = "C:\\Users\\Kyle\\source\\repos\\DKP Program\\SumCodeMang\\stats.txt";
+	
 };
 
 //sql = "SELECT sql FROM sqlite_master WHERE name = 'ITEM';"; -- to return table specific info
@@ -96,7 +114,7 @@ private:
 
 
 //sql = "CREATE TABLE PLAYER(NAME TEXT NOT NULL UNIQUE,LEVEL INT NOT NULL,CLASS TEXT,TYPE TEXT,DKP INT NOT NULL,DKPTOTAL INT NOT NULL,ATTENDANCE FLOAT NOT NULL,LIFETIME FLOAT NOT NULL,CHECKS INT NOT NULL, CHECKSTOTAL INT NOT NULL);";
-//sql = "INSERT INTO PLAYER(name,level,class,type,dkp,dkptotal,attendance,lifetime,checks,checktotal) VALUES ('Xhann', 70, 'Berserker', 'Main', 0,0,0,0,0,0);";
+//sql = "INSERT INTO PLAYER(name,level,class,type,dkp,dkptotal,attendance,lifetime,checks,checkstotal) VALUES ('Xhann', 70, 'Berserker', 'Main', 0,0,0,0,0,0);";
 
 //sql = "CREATE TABLE RAID(DATE INT UNIQUE,ITEMS INT,DKPEARNED INT,RAIDERS INT,RAIDERSAVG FLOAT, DKPSPENT INT, DKPRAID INT);";
 //sql = "INSERT INTO RAID(DATE,ITEMS,DKPEARNED,RAIDERS,RAIDERSAVG, DKPSPENT, DKPRAID) VALUES (12202017, 47, 158, 52, 48.5, 7425, 8216);";
