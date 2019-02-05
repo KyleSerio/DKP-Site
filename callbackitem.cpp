@@ -25,7 +25,7 @@ int callbackitem(void *data, int argc, char **argv, char **azColName)
 	printError = true;
 	string temp;
 	//Column Widths = 0,  1,  2,  3, 4 = 84 total
-	int column[10] = {8, 14, 15, 40, 7};
+	int column[10] = {8, 12, 13, 44, 7};
 
 	cout << "|| ";
 
@@ -45,14 +45,12 @@ int callbackitem(void *data, int argc, char **argv, char **azColName)
 				{
 					string dateForm;
 
-					for (int index2 = 0; index2 < temp.length(); index2++)
+					if (temp.length() < 8)
 					{
-						if (index2 == 2 || index2 == 4)
-						{
-							dateForm += "/";
-						}
-						dateForm += temp[index2];
+						temp = "0" + temp;
 					}
+
+					dateForm = temp.substr(4, 2) + "/" + temp.substr(6, 2) + "/" + temp.substr(0, 4);
 
 					temp = dateForm;
 				}

@@ -14,7 +14,7 @@ int main() {
 
 
 
-	raidDump.update();
+	//raidDump.update();
 	raidDump.mainMenu();
 
 

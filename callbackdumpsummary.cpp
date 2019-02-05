@@ -8,9 +8,12 @@
 #include "sqlite3.h"
 using namespace std;
 
+extern int globalIndex;
 extern bool printError;
 extern int globalInt;
 extern string globalString;
+
+string formColumn(string word, int columnSize);
 
 //in shell.c - lines 3000 - 3003 : 
 //static int callback(void *pArg, int nArg, char **azArg, char **azCol) {
@@ -23,107 +26,119 @@ int callbackdumpsummary(void *data, int argc, char **argv, char **azColName)
 	int index;
 	int colWidth;
 	int dataWidth = 15;
-	int longest = 0;
+	int num = 0;
+	bool newEvent = false;
 	printError = true;
 	string temp;
 	//Column Widths = 0,  1,  2,   3   4  5  = 84 total
-	int column[10] = { 15, 15, 39, 15, 5};
-
+	int column[10] = { 15, 15, 39, 15, 7, 2};
+	
 
 	//sql = "CREATE TABLE RAIDDUMP(DATE INT,TIME INT,EVENT TEXT,PLAYER TEXT);";
 	//check = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
 
-	if (globalInt == 0)
+
+	if (globalString != argv[2] || globalIndex == 0)
 	{
-
-	}
-
-
-	cout << "|| ";
-
-	for (index = 0; index < argc; index++)
-	{
-
-		string temp;
-
-		if (argv[index])
+		if (globalIndex == 0)
 		{
-			temp = argv[index];
+			globalString = argv[2];
+			globalIndex = 1;
+			globalInt = 1;
+		}
+		else
+		{
+			temp = formColumn(to_string(globalInt),column[4]);
+			std::cout << temp << " ||" << endl;
+			globalString = argv[2];
+			globalInt = 1;
+		}
+		
+		cout << "|| ";
 
-			if (temp.length() < column[index])
+		for (index = 0; index < argc; index++)
+		{
+
+			string temp;
+
+			if (argv[index])
 			{
+				temp = argv[index];
 
-				if (index == 0)
+				if (temp.length() < column[index])
 				{
-					string dateForm;
 
-					if (temp.length() < 8)
+					if (index == 0)
 					{
-						temp = "0" + temp;
-					}
+						string dateForm;
 
-					for (int index2 = 0; index2 < temp.length(); index2++)
-					{
-						if (index2 == 2 || index2 == 4)
+						if (temp.length() < 8)
 						{
-							dateForm += "/";
+							temp = "0" + temp;
 						}
-						dateForm += temp[index2];
+
+						dateForm = temp.substr(4, 2) + "/" + temp.substr(6, 2) + "/" + temp.substr(0, 4);
+
+						temp = dateForm;
 					}
-
-					temp = dateForm;
-				}
-				else if (index == 1)
-				{
-					string timeForm;
-					int time = ((temp[0] - 48) * 10) + (temp[1] - 48);
-
-					if (time > 12)
+					else if (index == 1)
 					{
-						time -= 12;
+						string timeForm;
+						int time = ((temp[0] - 48) * 10) + (temp[1] - 48);
+
+						if (time > 12)
+						{
+							time -= 12;
+						}
+
+
+						timeForm = to_string(time) + ":" + temp[2] + temp[3];
+						temp = timeForm;
 					}
 
 
-					timeForm = to_string(time) + ":" + temp[2] + temp[3];
-					temp = timeForm;
+					colWidth = column[index] - temp.length();
+					string spaces(colWidth, ' ');
+					temp += spaces;
+				}
+				else
+				{
+					if (index != 1)
+					{
+						temp = temp.substr(0, column[index] - 2);
+						temp += "..";
+					}
+					else
+					{
+						temp = "DATE ERR";
+					}
 				}
 
+
+			}
+			else
+			{
+				temp = "NULL";
 				colWidth = column[index] - temp.length();
 				string spaces(colWidth, ' ');
 				temp += spaces;
 			}
-			else
+
+			if (index != 5 && index != 3)
 			{
-				if (index != 1)
-				{
-					temp = temp.substr(0, column[index] - 2);
-					temp += "..";
-				}
-				else
-				{
-					temp = "DATE ERR";
-				}
+				cout << temp;
 			}
 
 
 		}
-		else
-		{
-			temp = "NULL";
-			colWidth = column[index] - temp.length();
-			string spaces(colWidth, ' ');
-			temp += spaces;
-		}
-
-		if (index != 5 && index != 3)
-		{
-			cout << temp;
-		}
-
 
 	}
+	else
+	{
+		globalInt++;
+	}
 
-	cout << "||" << endl;
+	
 	printError = false;
 
 	return 0;

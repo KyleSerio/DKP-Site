@@ -55,14 +55,7 @@ int callbackraid(void *data, int argc, char **argv, char **azColName)
 						temp = "0" + temp;
 					}
 
-					for (int index2 = 0; index2 < temp.length(); index2++)
-					{
-						if (index2 == 2 || index2 == 4)
-						{
-							dateForm += "/";
-						}
-						dateForm += temp[index2];
-					}
+					dateForm = temp.substr(4,2) + "/" + temp.substr(6,2) + "/" + temp.substr(0,4);
 
 					temp = dateForm;
 				}
@@ -90,20 +83,34 @@ int callbackraid(void *data, int argc, char **argv, char **azColName)
 		else
 		{
 			temp = "NULL";
-			colWidth = column[index] - temp.length();
-			string spaces(colWidth, ' ');
+			string spaces;
+			if (column[index] > temp.length())
+			{
+				colWidth = column[index] - temp.length();
+				spaces.assign(colWidth, ' ');
+			}
+			else
+			{
+				colWidth = column[index];
+				spaces.assign(colWidth, ' ');
+			}
+
 			temp += spaces;
 		}
 
-		if (index + 1 < argc)
+		if (index < 7)
 		{
+			if (index + 2 < argc)
+			{
 
-			cout << temp << "| ";
+				cout << temp << "| ";
+			}
+			else
+			{
+				cout << temp;
+			}
 		}
-		else
-		{
-			cout << temp;
-		}
+
 
 	}
 

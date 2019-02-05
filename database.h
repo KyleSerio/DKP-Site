@@ -4,9 +4,6 @@
 #include<math.h>
 #include<fstream>
 #include<list>
-#include "raid.h" // + playerDump.h
-#include "player.h"
-#include "item.h"
 #include "sqlite3.h"
 #ifndef NOMINMAX
 #define NOMINMAX
@@ -14,6 +11,8 @@
 #include <windows.h>
 //#include <Commdlg.h>
 using namespace std;
+
+//callback function declarations
 int callback(void *data, int argc, char **argv, char **azColName);
 int callbackitem(void *data, int argc, char **argv, char **azColName);
 int callbackraid(void *data, int argc, char **argv, char **azColName);
@@ -24,11 +23,47 @@ int callbackremovedump(void *data, int argc, char **argv, char **azColName);
 int callbacksingle(void *data, int argc, char **argv, char **azColName);
 int callbackplayerinfo(void *data, int argc, char **argv, char **azColName);
 int callbackdumpsummary(void *data, int argc, char **argv, char **azColName);
-//int callbackshit(void *data, int argc, char **argv, char **azColName);
 
 
 
-class database : public item, public player, public raid
+struct purchase 
+{
+	string logLine = "";
+	string itemName = "";
+	string buyerName = "";
+	string secondBuyer = "";
+	string buyerType = "";
+	int dkpVal = 0;
+	bool complete = 0;
+	string errorFlag = "";
+};
+
+purchase parseLootLine(string lootLine,sqlite3 *db);
+
+string findWord(string stringLine, int &place);
+string findWord(string stringLine, int &place, bool changeCase);
+
+string findItem(string stringLine, int &place);
+string peekWord(string stringLine, int place);
+string peekWord(string stringLine, int place, bool changeCase);
+
+bool   exists(string table, string column, string value, sqlite3* db, int print);
+bool   exists(string table, string column, int    value, sqlite3* db, int print);
+
+string findDBVal(string value, string table, string column, string known, sqlite3* db);
+string findDBVal(string value, string table, string column, int    known, sqlite3* db);
+
+string formColumn(string word, int columnSize);
+string formColumn(int  &dkpVal, int columnSize);
+
+string getName();
+int    getDKP();
+string getItem();
+int    getDate(string &dateForm);
+
+bool isNum(string test);
+
+class database
 {
 public:
 	//Functions
@@ -38,13 +73,14 @@ public:
 	void accessPlayer();
 	void accessItem();
 	void accessRaid();
+	void accessAdmin();
 
 	void addPlayer();
 	void addPlayer(string newName);
 	bool addPlayer(string newName, string newClass, int newLevel);
 	void addItem();
 	void addItem(int date, string buyer, string item, int dkpVal);
-	void addRaid();
+	void addFile();
 
 	void removePlayer();
 	void removeItem();
@@ -101,10 +137,16 @@ private:
 	int raidCount;
 
 	char *zErrMsg = 0;
+	const char *cErrMsg = 0;
+	sqlite3_stmt *stmt;
 	sqlite3 *db;
 	int check;
 	char* sql;
-	
+	const char* sqlC;
+	const char* arg1;
+	const char* arg2;
+	const char* arg3;
+
 	string stats = "C:\\Users\\Kyle\\source\\repos\\DKP Program\\SumCodeMang\\stats.txt";
 	
 };
@@ -116,8 +158,8 @@ private:
 //sql = "CREATE TABLE PLAYER(NAME TEXT NOT NULL UNIQUE,LEVEL INT NOT NULL,CLASS TEXT,TYPE TEXT,DKP INT NOT NULL,DKPTOTAL INT NOT NULL,ATTENDANCE FLOAT NOT NULL,LIFETIME FLOAT NOT NULL,CHECKS INT NOT NULL, CHECKSTOTAL INT NOT NULL);";
 //sql = "INSERT INTO PLAYER(name,level,class,type,dkp,dkptotal,attendance,lifetime,checks,checkstotal) VALUES ('Xhann', 70, 'Berserker', 'Main', 0,0,0,0,0,0);";
 
-//sql = "CREATE TABLE RAID(DATE INT UNIQUE,ITEMS INT,DKPEARNED INT,RAIDERS INT,RAIDERSAVG FLOAT, DKPSPENT INT, DKPRAID INT);";
-//sql = "INSERT INTO RAID(DATE,ITEMS,DKPEARNED,RAIDERS,RAIDERSAVG, DKPSPENT, DKPRAID) VALUES (12202017, 47, 158, 52, 48.5, 7425, 8216);";
+//sql = "CREATE TABLE RAID(DATE INT UNIQUE,ITEMS INT,DKPEARNED INT,RAIDERS INT,RAIDERSAVG FLOAT, DKPSPENT INT, DKPRAID INT,DUMPS INT);";
+//sql = "INSERT INTO RAID(DATE,ITEMS,DKPEARNED,RAIDERS,RAIDERSAVG, DKPSPENT, DKPRAID,DUMPS INT) VALUES (12202017, 47, 158, 52, 48.5, 7425, 8216,5);";
 
 //sql = "CREATE TABLE RAIDDUMP(DATE INT,TIME INT,EVENT TEXT,PLAYER TEXT,DKP INT,FILE TEXT);";
 //sql = "INSERT INTO RAIDDUMP(DATE,TIME,EVENT,PLAYER,DKP,FILE) VALUES (12312017, 2130, 'Overlord Mata Muram', 'Xhann', 5, 'test.txt');";
