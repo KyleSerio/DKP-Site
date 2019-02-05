@@ -9,54 +9,8 @@ extern int globalInt;
 void database::update() //Used as a one-time when manually updating the database
 {
 	string command;
-	string test;
+	string test = "~";
 
-
-
-
-
-	std::cout << "Update Thingy " << endl;
-
-
-	//command = "DELETE FROM FILECHECK WHERE FILE like '%RaidRoster-20170925%';";
-	//sql = &command[0u];
-	//check = sqlite3_exec(db, sql, callbackno, 0, &zErrMsg);
-
-	//command = "SELECT * FROM FILECHECK;";
-	//sql = &command[0u];
-	//check = sqlite3_exec(db, sql, callbackshit, 0, &zErrMsg);
-
-	//command = "CREATE TABLE RAIDDUMP(DATE INT,TIME INT,EVENT TEXT,PLAYER TEXT,DKP INT,FILE TEXT);";
-	//sql = &command[0u];
-	//check = sqlite3_exec(db, sql, callbackno, 0, &zErrMsg);
-
-	//command = "DROP TABLE FILECHECK;";
-	//sql = &command[0u];
-	//check = sqlite3_exec(db, sql, callbackno, 0, &zErrMsg);
-
-	//command = "CREATE TABLE FILECHECK(FILE TEXT UNIQUE);";
-	//sql = &command[0u];
-	//check = sqlite3_exec(db, sql, callbackno, 0, &zErrMsg);
-
-	//sql = "DELETE FROM RAID;";
-	//check = sqlite3_exec(db, sql, callbackdump, 0, &zErrMsg);
-	//sql = "VACUUM;";
-	//check = sqlite3_exec(db, sql, callbackdump, 0, &zErrMsg);
-
-	//sql = "DELETE FROM RAIDDUMP;";
-	//check = sqlite3_exec(db, sql, callbackdump, 0, &zErrMsg);
-	//sql = "VACUUM;";
-	//check = sqlite3_exec(db, sql, callbackdump, 0, &zErrMsg);
-
-	//sql = "DELETE FROM ITEM;";
-	//check = sqlite3_exec(db, sql, callbackdump, 0, &zErrMsg);
-	//sql = "VACUUM;";
-	//check = sqlite3_exec(db, sql, callbackdump, 0, &zErrMsg);
-
-	//sql = "UPDATE PLAYER SET DKP = 0, DKPTOTAL = 0, ATTENDANCE = 0, LIFETIME = 0, CHECKS = 0, CHECKSTOTAL = 0;";
-	//check = sqlite3_exec(db, sql, callbackdump, 0, &zErrMsg);
-	//sql = "VACUUM;";
-	//check = sqlite3_exec(db, sql, callbackdump, 0, &zErrMsg);
 
 }
 
@@ -72,15 +26,12 @@ void database::mainMenu()
 		std::cout << "Items     : " << itemCount << endl;
 		std::cout << "Raids     : " << raidCount << endl;
 
-		std::cout << "Main Menu: [Enter] to Quit Program) Work with [P]layers, [I]tems, or [R]aids : ";
+		std::cout << "Main Menu: [Enter] to Quit Program) Work with [P]layers, [I]tems, [R]aids or [A]dmin Menu? : ";
 		std::getline(std::cin,input);
 		std::cout << endl;
 
-		if (input.empty())
-		{
-			//exit if input.empty()
-		}
-		else
+		
+		if (!input.empty())
 		{
 			input = toupper(input[0]);
 
@@ -95,6 +46,10 @@ void database::mainMenu()
 			else if (input[0] == 'R')
 			{
 				accessRaid();
+			}
+			else if (input[0] == 'A')
+			{
+				accessAdmin();
 			}
 			else
 			{
@@ -155,6 +110,77 @@ void database::accessItem()
 
 
 	}//end while - outer selection
+}
+
+void database::accessAdmin()
+{
+	string command = "";
+	string input = "";
+	string password = "";
+
+	std::cout << "Admin Menu: [Enter] to Leave) [W]ipe Raid Data? : ";
+	std::getline(std::cin, input);
+	std::cout << endl;
+
+	if (!input.empty())
+	{
+		input = toupper(input[0]);
+
+		if (input[0] == 'W')
+		{
+			std::cout << "Enter the Password to wipe database : ";
+			std::getline(std::cin, password);
+			std::wcout << endl;
+
+			if (password == "admin123")
+			{
+				command = "DROP TABLE FILECHECK;";
+				sql = &command[0u];
+				check = sqlite3_exec(db, sql, callbackno, 0, &zErrMsg);
+
+				command = "CREATE TABLE FILECHECK(FILE TEXT UNIQUE);";
+				sql = &command[0u];
+				check = sqlite3_exec(db, sql, callbackno, 0, &zErrMsg);
+
+				command = "DROP TABLE RAID;";
+				sql = &command[0u];
+				check = sqlite3_exec(db, sql, callbackno, 0, &zErrMsg);
+
+				sql = "CREATE TABLE RAID(DATE INT UNIQUE,ITEMS INT,DKPEARNED INT,RAIDERS INT,RAIDERSAVG FLOAT, DKPSPENT INT, DKPRAID INT,DUMPS INT);";
+				check = sqlite3_exec(db, sql, callbackdump, 0, &zErrMsg);
+
+				sql = "DELETE FROM RAIDDUMP;";
+				check = sqlite3_exec(db, sql, callbackdump, 0, &zErrMsg);
+				sql = "VACUUM;";
+				check = sqlite3_exec(db, sql, callbackdump, 0, &zErrMsg);
+
+				sql = "DELETE FROM ITEM;";
+				check = sqlite3_exec(db, sql, callbackdump, 0, &zErrMsg);
+				sql = "VACUUM;";
+				check = sqlite3_exec(db, sql, callbackdump, 0, &zErrMsg);
+
+				sql = "UPDATE PLAYER SET DKP = 0, DKPTOTAL = 0, ATTENDANCE = 0, LIFETIME = 0, CHECKS = 0, CHECKSTOTAL = 0;";
+				check = sqlite3_exec(db, sql, callbackdump, 0, &zErrMsg);
+				sql = "VACUUM;";
+				check = sqlite3_exec(db, sql, callbackdump, 0, &zErrMsg);
+
+				std::cout << "Database has been Wiped!! " << endl;
+			}
+			else
+			{
+				std::cout << "Incorrect Password! " << endl;
+			}
+			password = "";
+
+		}
+		else
+		{
+			std::cout << "No such Option!" << endl;
+		}
+
+	}
+
+
 }
 
 void database::accessPlayer()
@@ -232,7 +258,7 @@ void database::accessRaid()
 
 		    if (input[0] == 'F')
 			{
-				addRaid();
+				addFile();
 			}
 			else if (input[0] == 'R')
 			{
@@ -262,11 +288,12 @@ void database::accessRaid()
 void database::addItem()
 {
 	string command;
-	string name;
-	string buyer;
+	const unsigned char* testResult;
+	string itemName = "";
+	string buyer = "";
 	bool leave = false;
 	int date = 0;
-	int dkp = -1;
+	int dkp = -100;
 
 	//sql = "INSERT INTO ITEM(ID,DATE,BUYER,ITEM,SPENT) VALUES (1, 12202017, 'Venalin', 'Morguecaller', 50);";
 	//check = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
@@ -274,37 +301,35 @@ void database::addItem()
 	printError = true;
 
 	std::cout << "Adding Item: [Enter] for Main Menu) What is the name of the item?: ";
-	std::getline(std::cin, name);
-	std::cout << endl;
+	itemName = getItem();
 
-	if (!name.empty())
+	std::cout << "Item name : " << itemName << endl;
+
+	if (!itemName.empty())
 	{
-		name[0] = toupper(name[0]);
 
 		while (printError && !leave)
 		{
 
 			std::cout << "[Enter] to exit: Who bought this item?: ";
-			std::getline(std::cin,buyer);
-			std::cout << endl;
+			buyer = getName();
 
-			if (!buyer.empty())
+			if (buyer.empty())
 			{
+				std::cout << "Skipping..." << endl;
 				leave = true;
 			}
 			else
 			{
-				buyer[0] = toupper(buyer[0]);
 				printError = true;
 				std::cout << "Adding to ";
-				command = "SELECT NAME FROM PLAYER WHERE NAME = '" + buyer + "';";
-				sql = &command[0u];
-				check = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
+				std::cout << endl;
 
-				if (printError)
+				if (!exists("PLAYER", "NAME", buyer, db, 1))
 				{
 					std::cout << "Error: Invalid player" << endl;
 				}
+				std::cout << endl;
 			}
 
 		}
@@ -312,29 +337,12 @@ void database::addItem()
 		while ((dkp < 0 || dkp > 2500) && !leave)
 		{
 			std::cout << "[-1] to exit: How much did " + buyer + " pay?: ";
-			std::cin >> dkp;
-			std::cout << endl;
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			while (std::cin.fail())
-			{
-				std::cout << "Error: Enter an integer " << endl;
-				std::cin.clear();
-				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-				std::cin >> date;
-			}
+			dkp = getDKP();
 
 
 			if (dkp == -1)
 			{
 				leave = true;
-			}
-			else
-			{
-				if (dkp < 0 || dkp > 2500)
-				{
-					std::cout << "Error: Invalid DKP amount(0 - 2500)" << endl;
-				}
 			}
 
 		}
@@ -344,55 +352,40 @@ void database::addItem()
 		{
 			string testDate;
 			std::cout << "[-1] to exit) Enter New Raid Date(MMDDYYYY): ";
-			std::cin >> date;
-			std::cout << endl;
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			while (std::cin.fail())
-			{
-				std::cout << "Error: Enter an integer " << endl;
-				std::cin.clear();
-				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-				std::cin >> date;
-			}
+			date = getDate(testDate);
 
 			if (date != -1)
 			{
+				command = "INSERT INTO ITEM(ID,DATE,BUYER,ITEM,SPENT) VALUES (?, ?, ?, ?, ?);";
+				sqlC = &command[0u];
+				check = sqlite3_prepare(db, sqlC, strlen(sqlC), &stmt, &cErrMsg);
 
-				testDate = to_string(date);
-				if (testDate.length() != 8) //8 didgits + null char (?)
+				if (check == SQLITE_OK)
 				{
-					std::cout << "Error: Incorrect Date Format" << endl;
+					arg1 = buyer.c_str();
+					arg2 = itemName.c_str();
+
+					sqlite3_bind_int(stmt, 1, itemCount);
+					sqlite3_bind_int(stmt, 2, date);
+					sqlite3_bind_text(stmt, 3, arg1, strlen(arg1), 0);
+					sqlite3_bind_text(stmt, 4, arg2, strlen(arg2), 0);
+					sqlite3_bind_int(stmt, 5, dkp);
+
+					sqlite3_step(stmt);
+					sqlite3_finalize(stmt);
 				}
-				else
-				{
-					incItemCount();
-					command = "INSERT INTO ITEM(ID,DATE,BUYER,ITEM,SPENT) VALUES (" + to_string(itemCount) + ", " + to_string(date) + ", '" + buyer + "', '" + name + "', " + to_string(dkp) + ");";
-					sql = &command[0u];
-					check = sqlite3_exec(db, sql, callbackitem, 0, &zErrMsg);
 
+				incItemCount();
 
-					std::cout << "Added " << buyer << "'s purchase to the database! " << endl;
-					printPlayerItems(buyer);
-					date = -1;
-
-				}
+				std::cout << "Added " << buyer << "'s purchase to the database! " << endl;
+				printPlayerItems(buyer);
+				date = -1;				
 			}
 		}
 
-
-
-				
-			
-
-
 	}
 
-
-
 	std::cout << endl;
-
-	
 	
 }
 
@@ -423,7 +416,7 @@ bool database::addPlayer(string newName, string newClass, int newLevel)
 
 
 	std::cout << "[Enter] to cancel: What type of player is " + newName + "? (Main/Box etc.): ";
-	std::getline(std::cin, type);
+	type = getName();
 
 	if (type.empty())
 	{
@@ -431,16 +424,6 @@ bool database::addPlayer(string newName, string newClass, int newLevel)
 	}
 	else
 	{
-		type[0] = toupper(type[0]);
-
-		for (int index = 0; index < type.length(); index++)
-		{
-			if (type[index] == ' ' && type[index + 1] != NULL)
-			{
-				type[index + 1] = toupper(type[index + 1]);
-			}
-		}
-
 		command = "INSERT INTO PLAYER(name,level,class,type,dkp,dkptotal,attendance,lifetime,checks,checkstotal) " \
 			"VALUES ('" + newName + "', " + to_string(newLevel) + ",'" + newClass + "', '" + type + "', 0, 0, 0, 0, 0, 0);";
 		sql = &command[0u];
@@ -481,8 +464,7 @@ void database::addPlayer(string newName) //Takes input from user to add a player
 	string newClass;
 
 
-	while (!newName.empty()) //Outer Loop Exit Condition
-	{
+
 		std::cout << "Adding " << newName << " to the database..." << endl;
 
 
@@ -492,22 +474,17 @@ void database::addPlayer(string newName) //Takes input from user to add a player
 		sql = &command[0u];
 		check = sqlite3_exec(db, sql, callbackno, 0, &zErrMsg);
 
-		if (printError)
+		if (!printError)
+		{
+			std::cout << "Error: Player already exists!" << endl;
+			std::cout << "Exiting..." << endl;
+		}
+		else
 		{
 			while (level != -1 && !cancel)
 			{
 				std::cout << "[-1] to exit) What level is " + newName + "?: ";
-				std::cin >> level;
-				std::cout << endl;
-				std::cin.clear();
-				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-				while (std::cin.fail())
-				{
-					std::cout << "Error: Enter an integer " << endl;
-					std::cin.clear();
-					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-					std::cin >> level;
-				}
+				level = getDKP();
 
 				if (level != -1)
 				{
@@ -519,21 +496,16 @@ void database::addPlayer(string newName) //Takes input from user to add a player
 					else
 					{
 						std::cout << "[Enter] to Cancel: What class is " + newName + "?: ";
-						std::getline(std::cin, newClass);
-						std::cout << endl;
+						newClass = getName();
 
 						if (!newClass.empty() && !cancel)
 						{
-							newClass[0] = toupper(newClass[0]);
 
 							std::cout << "[Enter] to Cancel: What type of player is " + newName + "? (Main/Box etc.): ";
-							std::getline(std::cin, type);
-							std::cout << endl;
+							type = getName();
 
 							if (!type.empty() && !cancel)
 							{
-								type[0] = toupper(type[0]);
-
 								command = "INSERT INTO PLAYER(name,level,class,type,dkp,dkptotal,attendance,lifetime,checks,checkstotal) " \
 									"VALUES ('" + newName + "', " + to_string(level) + ",'" + newClass + "', '" + type + "', 0, 0, 0, 0, 0, 0);";
 								sql = &command[0u];
@@ -560,15 +532,12 @@ void database::addPlayer(string newName) //Takes input from user to add a player
 					cancel = true;
 				}
 			}
-		}
-		else
-		{
-			std::cout << "Error: Player already exists!" << endl;
+			
 		}
 
 		std::cout << endl;
 
-	}
+	
 
 }
 
@@ -586,13 +555,11 @@ void database::addPlayer() //Takes input from user to add a player to PLAYER tab
 		int level = 0;
 		cancel = false;
 		std::cout << "[Enter] for Main Menu) Who would you like to add?: ";
-		std::getline(std::cin, name);
-		std::cout << endl;
+		name = getName();
 
 		
 		if (!name.empty()) 
 		{
-			name[0] = toupper(name[0]);
 			printError = true;
 			command = "SELECT * FROM PLAYER WHERE NAME = '" + name + "';";
 			sql = &command[0u];
@@ -603,17 +570,7 @@ void database::addPlayer() //Takes input from user to add a player to PLAYER tab
 				while (level != -1 && !cancel)
 				{
 					std::cout << "[-1] to exit) What level is " + name + "?: ";
-					std::cin >> level;
-					std::cout << endl;
-					std::cin.clear();
-					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-					while (std::cin.fail())
-					{
-						std::cout << "Error: Enter an integer " << endl;
-						std::cin.clear();
-						std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-						std::cin >> level;
-					}
+					level = getDKP();
 
 					if (level != -1)
 					{
@@ -625,20 +582,15 @@ void database::addPlayer() //Takes input from user to add a player to PLAYER tab
 						else
 						{
 							std::cout << "[Enter] to Cancel: What class is " + name + "?: ";
-							std::getline(std::cin, newClass);
-							std::cout << endl;
+							newClass = getName();
 
 							if (!newClass.empty() && !cancel)
 							{
-								newClass[0] = toupper(newClass[0]);
-
 								std::cout << "[Enter] to Cancel: What type of player is " + name + "? (Main/Box etc.): ";
-								std::getline(std::cin, type);
-								std::cout << endl;
+								type = getName();
 
 								if (!type.empty() && !cancel)
 								{
-									type[0] = toupper(type[0]);
 
 									command = "INSERT INTO PLAYER(name,level,class,type,dkp,dkptotal,attendance,lifetime,checks,checkstotal) " \
 										"VALUES ('" + name + "', " + to_string(level) + ",'" + newClass + "', '" + type + "', 0, 0, 0, 0, 0, 0);";
@@ -687,7 +639,7 @@ void database::addPlayer() //Takes input from user to add a player to PLAYER tab
 
 }
 
-void database::addRaid()
+void database::addFile()
 {
 	string input;
 
@@ -805,16 +757,7 @@ void database::removeItem()
 	{
 
 		std::cout << "Remove Menu: [-1] for Main Menu) What item ID would you like to remove?: ";
-		std::cin >> id;
-		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		while (std::cin.fail())
-		{
-			std::cout << "Error: Enter an integer " << endl;
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			std::cin >> id;
-		}
+		id = getDKP();
 
 		if (id != -1)
 		{
@@ -856,13 +799,10 @@ void database::removePlayer()
 	{
 
 		std::cout << "Remove Menu: [Enter] for Player Menu) Who would you like to remove?: ";
-		std::getline(std::cin,name);
-		std::cout << endl;
+		name = getName();
 
 		if (!name.empty())
 		{
-			name[0] = toupper(name[0]);
-
 			std::cout << "Removing ";
 			printError = true;
 
@@ -899,6 +839,7 @@ void database::removeRaid()
 {
 	string command;
 	string dateFormat;
+	int dateNum = 0;
 	string date = "~";
 	sqlite3_stmt* stmt = 0;
 
@@ -906,81 +847,56 @@ void database::removeRaid()
 	{
 
 		std::cout << "Remove Menu: [Enter] for Raid Menu) Enter Raid Date to remove(MMDDYYYY): ";
-		std::getline(std::cin, date);
-		std::cout << endl;
+		dateNum = getDate(date);
 
 		if (!date.empty())
 		{
-			if (date.length() != 8)
+			std::cout << "Removing ";
+			printError = true;
+
+			command = "SELECT DATE FROM RAID WHERE DATE = " + to_string(dateNum) + ";";
+			sql = &command[0u];
+			check = sqlite3_exec(db, sql, callbackraid, 0, &zErrMsg);
+			std::cout << "... " << endl;
+
+			if (printError)
 			{
-				std::cout << "Error: Incorrect date format!" << endl;
+				std::cout << "Error: Raid Date not found!" << endl;
 			}
-			else 
+			else
 			{
-				if (date[0] == '0')
-				{
-					date = date.substr(1,date.length() - 1);
-				}
-
-				std::cout << "Removing ";
-				printError = true;
-
-				int dateNum = stoi(date);
-
-				command = "SELECT DATE FROM RAID WHERE DATE = " + to_string(dateNum) + ";";
+				command = "DELETE FROM RAID WHERE DATE = " + to_string(dateNum) + ";";
 				sql = &command[0u];
 				check = sqlite3_exec(db, sql, callbackraid, 0, &zErrMsg);
-				std::cout << "... " << endl;
+
+				revertDump(dateNum);
+
+				printError = true;
+				command = "SELECT * FROM FILECHECK WHERE FILE like '%RaidRoster-" + dateFormat + "%' LIMIT 1;";
+				sql = &command[0u];
+				check = sqlite3_exec(db, sql, callbackno, 0, &zErrMsg);
 
 				if (printError)
 				{
-					std::cout << "Error: Raid Date not found!" << endl;
+					std::cout << "Error: No corresponding file found!" << endl;
 				}
 				else
 				{
-					command = "DELETE FROM RAID WHERE DATE = " + to_string(dateNum) + ";";
-					sql = &command[0u];
-					check = sqlite3_exec(db, sql, callbackraid, 0, &zErrMsg);
-					
-					if (date.length() == 7)
-					{
-						date = '0' + date;
-					}
-
-					dateFormat =  date.substr(4,4);
-					dateFormat += date.substr(0,2);
-					dateFormat += date.substr(2,2);
-
-
-					revertDump(dateNum);
-
-
-					printError = true;
-					command = "SELECT * FROM FILECHECK WHERE FILE like '%RaidRoster-" + dateFormat + "%' LIMIT 1;";
-					sql = &command[0u];
-					check = sqlite3_exec(db, sql, callbackno, 0, &zErrMsg);
-
-					if (printError)
-					{
-						std::cout << "Error: No corresponding file found!" << endl;
-					}
-					else
-					{
-						command = "DELETE FROM FILECHECK WHERE FILE like '%RaidRoster-" + dateFormat + "%';";
-						sql = &command[0u];
-						check = sqlite3_exec(db, sql, callbackno, 0, &zErrMsg);
-					}
-
-					std::cout << "Removed the " << date << " raid from the database!" << endl;
-
-					command = "DELETE FROM RAIDDUMP WHERE DATE = " + to_string(dateNum) + ";";
+					command = "DELETE FROM FILECHECK WHERE FILE like '%RaidRoster-" + dateFormat + "%';";
 					sql = &command[0u];
 					check = sqlite3_exec(db, sql, callbackno, 0, &zErrMsg);
 				}
+
+				std::cout << "Removed the " << date << " raid from the database!" << endl;
+
+				command = "DELETE FROM RAIDDUMP WHERE DATE = " + to_string(dateNum) + ";";
+				sql = &command[0u];
+				check = sqlite3_exec(db, sql, callbackno, 0, &zErrMsg);
 			}
-
-
 		}
+
+
+		
 	}
 }
 
@@ -1029,97 +945,62 @@ void database::viewItem()
 	{
 
 		std::cout << "View Menu: [Enter] for Item Menu) What item would you like to view?: ";
-		std::getline(std::cin,name);
-		std::cout << endl;
+		name = getItem();
 
-		if (!name.empty())
+		printError = true;
+		std::cout << "Loading ";
+		command = "SELECT ITEM FROM ITEM WHERE ITEM = '" + name + "' LIMIT 1;";
+		sql = &command[0u];
+		check = sqlite3_exec(db, sql, callbackitem, 0, &zErrMsg);
+
+		if (printError)
 		{
-			name[0] = toupper(name[0]);
-			char test = '~';
-			for (int index2 = 0; index2 < name.length(); index2++)
+			std::cout << "Error: No Entry For " << name << endl << endl;
+		}
+		else
+		{
+
+			printItem(name);
+
+			while (!input.empty())
 			{
-				test = name[index2];
+				std::cout << "Item's Page: [Enter] for Item Menu) Viewing all " << name << ": View [B]uyer, [R]aid, [D]elete item, or [Q]uit";
+				std::getline(std::cin,input);
+				std::cout << endl;
 
-				if (test == ' ')
+
+				if (!input.empty())
 				{
-					if (name[index2 + 1] == 'o' && name[index2 + 2] == 'f' && name[index2 + 3] == ' ')
-					{
+					input[0] = toupper(input[0]);
 
+					if (input[0] == 'B')
+					{
+						viewPlayer();
 					}
-					else if (name[index2 + 1] == 't' && name[index2 + 2] == 'h' && name[index2 + 3] == 'e' && name[index2 + 4] == ' ')
+					else if (input[0] == 'R')
 					{
-
+						viewRaid();
 					}
-					else if (name[index2 + 1] == 'a' && name[index2 + 2] == 'n' && name[index2 + 3] == 'd' && name[index2 + 4] == ' ')
+					else if (input[0] == 'D')
 					{
-
-					}
-					else if (name[index2 + 1] == 'f' && name[index2 + 2] == 'o' && name[index2 + 3] == 'r' && name[index2 + 4] == ' ')
-					{
-
+						removeItem();
 					}
 					else
 					{
-						name[index2 + 1] = toupper(name[index2 + 1]);
-					}		
-				}
-
-			}
-
-			printError = true;
-			std::cout << "Loading ";
-			command = "SELECT ITEM FROM ITEM WHERE ITEM = '" + name + "' LIMIT 1;";
-			sql = &command[0u];
-			check = sqlite3_exec(db, sql, callbackitem, 0, &zErrMsg);
-
-			if (printError)
-			{
-				std::cout << "Error: No Entry For " << name << endl << endl;
-			}
-			else
-			{
-
-				printItem(name);
-
-				while (!input.empty())
-				{
-					std::cout << "Item's Page: [Enter] for Item Menu) Viewing all " << name << ": View [B]uyer, [R]aid, [D]elete item, or [Q]uit";
-					std::getline(std::cin,input);
-					std::cout << endl;
-
-
-					if (!input.empty())
-					{
-						input[0] = toupper(input[0]);
-
-						if (input[0] == 'B')
-						{
-							viewPlayer();
-						}
-						else if (input[0] == 'R')
-						{
-							viewRaid();
-						}
-						else if (input[0] == 'D')
-						{
-							removeItem();
-						}
-						else
-						{
-							std::cout << "Error: no Such Option " << endl;
-						}
-
-						printItems();
+						std::cout << "Error: no Such Option " << endl;
 					}
 
+					printItems();
 				}
+
 			}
-
-
 		}
 
 
 	}
+
+
+	
 }
 
 void database::viewPlayer()
@@ -1135,13 +1016,11 @@ void database::viewPlayer()
 
 
 		std::cout << "View Menu: [Enter] for Player Menu) Who would you like to view?: ";
-		std::getline(std::cin,name);
-		std::cout << endl;
+		name = getName();
 		
 
 		if (!name.empty())
 		{
-			name[0] = toupper(name[0]);
 			printError = true;
 			std::cout << "Loading ";
 			command = "SELECT NAME FROM PLAYER WHERE NAME = '" + name + "';";
@@ -1205,63 +1084,37 @@ void database::viewRaid()
 	string input = "~";
 	int dateNum = 0;
 	bool leave = false;
-	string date = "~";
 	string command = "~";
-	string dateFormat = "~";
+	string dateForm = "~";
 
-	while (!date.empty())
+	while (!dateForm.empty())
 	{
 		std::cout << "Which raid would you like to view?(MMDDYYY): ";
-		std::getline(std::cin, date);
+		dateNum = getDate(dateForm);
 		std::cout << endl;
 
-		if (!date.empty())
+		if (!dateForm.empty())
 		{
-			if (date.length() != 8)
+			std::cout << "Loading";
+
+			printError = true;
+			command = "SELECT DATE FROM RAID WHERE DATE = " + to_string(dateNum) + ";";
+			sql = &command[0u];
+			check = sqlite3_exec(db, sql, callbackno, 0, &zErrMsg);
+			std::cout << dateForm << "... " << endl;
+
+			if (printError)
 			{
-				std::cout << "Error: Incorrect date format!" << endl;
+				std::cout << "Error: Raid Date not found!" << endl;
 			}
 			else
 			{
-				if (date[0] == '0')
-				{
-					date = date.substr(1, date.length() - 1);
-				}
+				printItems(dateNum);
 
-				std::cout << "Loading";
+				printRaid(dateNum);
 
-
-				if (date.length() == 7)
-				{
-					date = '0' + date;
-				}
-
-				dateFormat = date.substr(4, 4);
-				dateFormat += date.substr(0, 2);
-				dateFormat += date.substr(2, 2);
-
-				int dateNum = stoi(date);
-				printError = true;
-				command = "SELECT DATE FROM RAID WHERE DATE = " + to_string(dateNum) + ";";
-				sql = &command[0u];
-				check = sqlite3_exec(db, sql, callbackno, 0, &zErrMsg);
-				std::cout << dateFormat << "... " << endl;
-
-				if (printError)
-				{
-					std::cout << "Error: Raid Date not found!" << endl;
-				}
-				else
-				{
-					printItems(dateNum);
-
-					printRaid(dateNum);
-
-					printDumpSummary(dateNum);
-
-				}
+				printDumpSummary(dateNum);
 			}
-
 
 		}
 	}
@@ -1273,13 +1126,13 @@ void database::viewRaid()
 void database::viewDumps()
 {
 	string input = "~";
-	int dateNum = 0;
 	bool leave = false;
-	string date = "~";
+	string dateForm = "~";
 	string player = "~";
 	string event = "~";
 	string command = "~";
-	string dateFormat = "~";
+	int dateNum = 0;
+
 
 	while (!input.empty())
 	{
@@ -1294,31 +1147,15 @@ void database::viewDumps()
 			if (input[0] == 'D')
 			{
 				std::cout << "What Raid Date Would You Like to View?(MMDDYYY): ";
-				std::cin >> date;
-				std::cin.clear();
-				std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+				dateNum = getDate(dateForm);
 
 				std::cout << "Loading ";
-
-				while (date.length() != 8)
-				{
-					std::cout << "Error: Incorrect Date Format! (MMDDYYYY)";
-					std::cin >> date;
-					std::cin.clear();
-					std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-				}
-
-				dateFormat = date.substr(4, 4);
-				dateFormat += date.substr(0, 2);
-				dateFormat += date.substr(2, 2);
-
-				int dateNum = stoi(date);
 
 				printError = true;
 				command = "SELECT DATE FROM RAIDDUMP WHERE DATE = " + to_string(dateNum) + ";";
 				sql = &command[0u];
 				check = sqlite3_exec(db, sql, callbackno, 0, &zErrMsg);
-				std::cout << dateFormat << "... " << endl;
+				std::cout << dateForm << "... " << endl;
 
 				if (printError)
 				{
@@ -1335,43 +1172,7 @@ void database::viewDumps()
 			{
 
 				std::cout << "What Raid Event Would You Like to View?(MMDDYYY): ";
-				std::getline(std::cin,event);
-
-				event[0] = toupper(event[0]);
-				char test = '~';
-				for (int index2 = 0; index2 < event.length(); index2++)
-				{
-					test = event[index2];
-
-					if (test == ' ')
-					{
-						if (event[index2 + 1] == 'o' && event[index2 + 2] == 'f' && event[index2 + 3] == ' ')
-						{
-
-						}
-						else if (event[index2 + 1] == 't' && event[index2 + 2] == 'h' && event[index2 + 3] == 'e' && event[index2 + 4] == ' ')
-						{
-
-						}
-						else if (event[index2 + 1] == 'a' && event[index2 + 2] == 'n' && event[index2 + 3] == 'd' && event[index2 + 4] == ' ')
-						{
-
-						}
-						else if (event[index2 + 1] == 'f' && event[index2 + 2] == 'o' && event[index2 + 3] == 'r' && event[index2 + 4] == ' ')
-						{
-
-						}
-						else
-						{
-							event[index2 + 1] = toupper(event[index2 + 1]);
-						}
-					}
-					else if ((test == '-' || test == '\'') && event[index2 + 1] != ' ')
-					{
-						event[index2 + 1] = toupper(event[index2 + 1]);
-					}
-
-				}
+				event = getItem();
 
 				std::cout << "Loading " << event << "..." << endl;
 
@@ -1395,8 +1196,7 @@ void database::viewDumps()
 			else if (input[0] == 'P')
 			{
 				std::cout << "What Player's Dumps Would You Like to View?: ";
-				std::getline(std::cin, player);
-				player[0] = toupper(player[0]);
+				player = getName();
 
 				std::cout << "Loading " << player << "...";
 
@@ -1441,17 +1241,7 @@ void database::updateItem()
 	{
 
 		std::cout << "Update Menu: [-1] for Main) What item id would you like to update?: ";
-		std::cin >> id;
-		std::cout << endl;
-		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		while (std::cin.fail())
-		{
-			std::cout << "Error: Enter an integer " << endl;
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			std::cin >> id;
-		}
+		id = getDKP();
 
 
 		if (id != -1)
@@ -1486,12 +1276,10 @@ void database::updateItem()
 							string name = "~";
 
 							std::cout << "[Enter] to cancel: Enter New Item Name: ";
-							std::getline(std::cin, name);
+							name = getItem();
 
-							if (!input.empty())
+							if (!name.empty())
 							{
-								name[0] = toupper(name[0]);
-
 								command = "UPDATE ITEM SET ITEM = '" + name + "' WHERE ID = " + to_string(id) + ";";
 								sql = &command[0u];
 								check = sqlite3_exec(db, sql, callbackitem, 0, &zErrMsg);
@@ -1505,12 +1293,10 @@ void database::updateItem()
 							while (!buyer.empty())
 							{
 								std::cout << "[Enter] to exit: Enter New Buyer: ";
-								std::getline(std::cin,buyer);
+								buyer = getName();
 
 								if (!buyer.empty())
 								{
-									buyer[0] = toupper(buyer[0]);
-
 									printError = true;
 									command = "SELECT NAME FROM PLAYER WHERE NAME = '" + buyer + "';";
 									sql = &command[0u];
@@ -1543,31 +1329,15 @@ void database::updateItem()
 							while (dkp != -1)
 							{
 								std::cout << "[-1] to exit) Enter New DKP Spent: ";
-								std::cin >> dkp;
-								std::cout << endl;
-								std::cin.clear();
-								std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-								while (std::cin.fail())
-								{
-									std::cout << "Error: Enter an integer " << endl;
-									std::cin.clear();
-									std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-									std::cin >> dkp;
-								}
+								dkp = getDKP();
 
 								if (dkp != -1)
 								{
-									if (dkp > 2500 || dkp < 0)
-									{
-										std::cout << "Error: Incorrect dkp amount (0 - 2500 only)! " << endl;
-									}
-									else
-									{
-										command = "UPDATE ITEM SET SPENT = " + to_string(dkp) + " WHERE ID = " + to_string(id) + ";";
-										sql = &command[0u];
-										check = sqlite3_exec(db, sql, callbackitem, 0, &zErrMsg);
-										dkp = -1;
-									}
+									command = "UPDATE ITEM SET SPENT = " + to_string(dkp) + " WHERE ID = " + to_string(id) + ";";
+									sql = &command[0u];
+									check = sqlite3_exec(db, sql, callbackitem, 0, &zErrMsg);
+									dkp = -1;
+									
 								}
 
 							}
@@ -1578,34 +1348,18 @@ void database::updateItem()
 							int date = 0;
 							while (date != -1)
 							{
+								int dateVal;
 								string testDate;
 								std::cout << "[-1] to exit) Enter New Raid Date(MMDDYYYY): ";
-								std::cin >> date;
-								std::cout << endl;
-								std::cin.clear();
-								std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-								while (std::cin.fail())
-								{
-									std::cout << "Error: Enter an integer " << endl;
-									std::cin.clear();
-									std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-									std::cin >> date;
-								}
+								dateVal = getDate(testDate);
 
-								if (date != -1)
+								if (dateVal != -1)
 								{
-									testDate = to_string(date);
-									if (testDate.length() != 8) //8 didgits + null char (?)
-									{
-										std::cout << "Error: Incorrect Date Format" << endl;
-									}
-									else
-									{
-										command = "UPDATE ITEM SET DATE = " + to_string(date) + " WHERE ID = " + to_string(id) + ";";
-										sql = &command[0u];
-										check = sqlite3_exec(db, sql, callbackitem, 0, &zErrMsg);
-										date = -1;
-									}
+									command = "UPDATE ITEM SET DATE = " + to_string(dateVal) + " WHERE ID = " + to_string(id) + ";";
+									sql = &command[0u];
+									check = sqlite3_exec(db, sql, callbackitem, 0, &zErrMsg);
+									date = -1;
+									
 								}
 							}
 
@@ -1637,7 +1391,7 @@ void database::updateItem()
 	}
 
 
-}//end method
+}
 
 void database::updatePlayer()
 {
@@ -1650,13 +1404,12 @@ void database::updatePlayer()
 	{
 
 		std::cout << "Update Menu: [Enter] for Main) Who would you like to update?: ";
-		std::getline(std::cin,name);
+		name = getName();
 		std::cout << endl;
 
 
 		if (!name.empty())
 		{
-			name[0] = toupper(name[0]);
 			printError = true;
 
 			command = "SELECT * FROM PLAYER WHERE NAME = '" + name + "';";
@@ -1685,12 +1438,10 @@ void database::updatePlayer()
 						if (input[0] == 'N')
 						{
 							std::cout << "[Enter] to cancel: Enter New Name: ";
-							std::getline(std::cin,newName);
+							newName = getName();
 
 							if (!newName.empty())
 							{
-								newName[0] = toupper(newName[0]);
-
 								command = "UPDATE PLAYER SET NAME = '" + newName + "' WHERE NAME = '" + name + "';";
 								sql = &command[0u];
 								check = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
@@ -1708,9 +1459,7 @@ void database::updatePlayer()
 							while (level != -1)
 							{
 								std::cout << "[-1] to exit: Enter New Level: ";
-								std::cin >> level;
-								std::cin.clear();
-								std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+								level = getDKP();
 
 								if (level != -1)
 								{
@@ -1732,12 +1481,10 @@ void database::updatePlayer()
 						else if (input[0] == 'C')
 						{
 							std::cout << "[Enter] to cancel: Enter New Class: ";
-							std::getline(std::cin,newClass);
+							newClass = getName();
 
 							if (!newClass.empty())
 							{
-								newClass[0] = toupper(newClass[0]);
-
 								command = "UPDATE PLAYER SET Class = '" + newClass + "' WHERE NAME = '" + name + "';";
 								sql = &command[0u];
 								check = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
@@ -1750,23 +1497,14 @@ void database::updatePlayer()
 							while (dkp != -1)
 							{
 								std::cout << "[-1] to exit) Enter New DKP Amount: ";
-								std::cin >> dkp;
-								std::cin.clear();
-								std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+								dkp = getDKP();
 
 								if (dkp != -1)
 								{
-									if (dkp > 2500)
-									{
-										std::cout << "Error: Too Much DKP! " << endl;
-									}
-									else
-									{
-										command = "UPDATE PLAYER SET DKP = " + to_string(dkp) + " WHERE NAME = '" + name + "';";
-										sql = &command[0u];
-										check = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
-										dkp = -1;
-									}
+									command = "UPDATE PLAYER SET DKP = " + to_string(dkp) + " WHERE NAME = '" + name + "';";
+									sql = &command[0u];
+									check = sqlite3_exec(db, sql, callback, 0, &zErrMsg);
+									dkp = -1;	
 								}
 
 							}
@@ -1832,7 +1570,7 @@ void database::updatePlayer()
 	}
 	
 	
-}//end method
+}
 
 
 
@@ -1855,6 +1593,7 @@ void database::parseDump(string directory,string fileName[],int fileNum)
 	//parse item method should contain: items bought, dkp spent for raid
 	struct raid
 	{
+		int totalDumps = 0;
 		int dumpDKP = 0; //how much each dump is worth in dkp
 		int dateInput = 0; // to use for adding, is the numerical date
 		string date; // set in the dateform loop
@@ -1926,9 +1665,9 @@ void database::parseDump(string directory,string fileName[],int fileNum)
 			raidDetails[0].date = dateForm[0];
 
 
-			dateInput[0] = ((temp[place + 5] - 48) * 10000000) + ((temp[place + 6] - 48) * 1000000) + ((temp[place + 7] - 48) * 100000)
-				+ ((temp[place + 8] - 48) * 10000) + ((temp[place + 1] - 48) * 1000) + ((temp[place + 2] - 48) * 100)
-				+ ((temp[place + 3] - 48) * 10) + (temp[place + 4] - 48);
+			dateInput[0] = ((temp[place + 1] - 48) * 10000000) + ((temp[place + 2] - 48) * 1000000) + ((temp[place + 3] - 48) * 100000)
+				+ ((temp[place + 4] - 48) * 10000) + ((temp[place + 5] - 48) * 1000) + ((temp[place + 6] - 48) * 100)
+				+ ((temp[place + 7] - 48) * 10) + (temp[place + 8] - 48);
 
 			raidDetails[0].dateInput = dateInput[0];
 
@@ -1975,9 +1714,9 @@ void database::parseDump(string directory,string fileName[],int fileNum)
 
 				if (dateForm[fileIndex] != dateForm[fileIndex - 1])
 				{
-					dateInput[fileIndex] = ((temp[place + 5] - 48) * 10000000) + ((temp[place + 6] - 48) * 1000000) + ((temp[place + 7] - 48) * 100000)
-						                 + ((temp[place + 8] - 48) * 10000) + ((temp[place + 1] - 48) * 1000) + ((temp[place + 2] - 48) * 100)
-						                 + ((temp[place + 3] - 48) * 10) + (temp[place + 4] - 48);
+					dateInput[0] = ((temp[place + 1] - 48) * 10000000) + ((temp[place + 2] - 48) * 1000000) + ((temp[place + 3] - 48) * 100000)
+						+ ((temp[place + 4] - 48) * 10000) + ((temp[place + 5] - 48) * 1000) + ((temp[place + 6] - 48) * 100)
+						+ ((temp[place + 7] - 48) * 10) + (temp[place + 8] - 48);
 
 					raidDetails[raidIndex].dateInput = dateInput[fileIndex];
 
@@ -2028,25 +1767,8 @@ void database::parseDump(string directory,string fileName[],int fileNum)
 	for (int index = 1; index <= raidCount; index++)
 	{
 		std::cout << "[0] to make no change) There were " << dumpCount[index] << " dumps for raid #" << index << ", how much dkp was each dump worth? : ";
-		std::cin >> dkpInput;
+		dkpInput = getDKP();
 		std::cout << endl;
-		std::cin.clear();
-		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-		while (std::cin.fail())
-		{
-			std::cout << "Error: Enter an integer " << endl;
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			std::cin >> dkpInput;
-		}
-
-		while (dkpValue[index] < 0 || dkpValue[index] > 2500)
-		{
-			std::cout << "Error: Must be between 0 and 2500 (Enter [0] to do nothing): " << endl;
-			std::cin.clear();
-			std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-			std::cin >> dkpInput;
-		}
 
 		if (dkpInput != 0)
 		{
@@ -2081,7 +1803,6 @@ void database::parseDump(string directory,string fileName[],int fileNum)
 
 
         //find and format the time of dump
-        
 		int place = files[index].length() - 10;
 		string temp = files[index];
 
@@ -2122,7 +1843,7 @@ void database::parseDump(string directory,string fileName[],int fileNum)
 			//get the event name per dump
 			std::cout << "Raid #" << raidIndex + 1 << " : Dump #" << index + 1 << " - " << endl;
 			std::cout << "What event is the dump on " << dateForm[index] << " at " << timeForm << " for? [Enter] to repeat last event: ";
-			std::getline(cin, event);
+			event = getItem();
 			std::cout << endl;
 
 			if (event.empty() && eventStore.empty())
@@ -2136,16 +1857,6 @@ void database::parseDump(string directory,string fileName[],int fileNum)
 			}
 			else
 			{
-				
-				event[0] = toupper(event[0]);
-				//Capitalize each new word vvv
-				for (int index = 0; index < event.length(); index++)
-				{
-					if (event[index] == ' ')
-					{
-						event[index + 1] = toupper(event[index + 1]);
-					}
-				}
 				eventStore = event;
 				leave = true;
 			}
@@ -2177,8 +1888,8 @@ void database::parseDump(string directory,string fileName[],int fileNum)
 				command = "SELECT NAME FROM PLAYER WHERE NAME = '" + charName + "';";
 				sql = &command[0u];
 				check = sqlite3_exec(db, sql, callbackno, 0, &zErrMsg);
-				string spaces(20 - charName.length(), ' ');
-				std::cout << "| " << charName << spaces;
+				temp = formColumn(charName,20);
+				std::cout << "| " << temp;
 
 				if (printError) //returns true if the player is not in the system already
 				{
@@ -2278,6 +1989,7 @@ void database::parseDump(string directory,string fileName[],int fileNum)
 
 
 		std::cout << "Done with this dump!" << endl;
+		raidDetails[raidIndex].totalDumps++;
 		readFrom.close();
 	}
 
@@ -2298,6 +2010,7 @@ void database::parseDump(string directory,string fileName[],int fileNum)
 
 		std::cout << "Raider Total: " << raidDetails[index].totalRaiders << endl;
 		std::cout << "Raider AVG  : " << raidDetails[index].avgRaiders << endl;
+		std::cout << "Total Dumps : " << raidDetails[index].totalDumps << endl;
 		std::cout << "-----------------------------------" << endl;
 
 		printError = true;
@@ -2308,13 +2021,13 @@ void database::parseDump(string directory,string fileName[],int fileNum)
 		if(printError)
 		{
 			//"INSERT INTO RAID(DATE,ITEMS,DKPEARNED,RAIDERS,RAIDERSAVG, DKPSPENT, DKPRAID) VALUES (12202017, 47, 158, 52, 48.5, 7425, 8216);";
-			command = "INSERT INTO RAID(DATE,ITEMS,DKPEARNED,RAIDERS,RAIDERSAVG,DKPSPENT,DKPRAID) VALUES (" \
+			command = "INSERT INTO RAID(DATE,ITEMS,DKPEARNED,RAIDERS,RAIDERSAVG,DKPSPENT,DKPRAID,DUMPS) VALUES (" \
 									//DATE                      //ITEMS                 //DKPEARNED
 				    + to_string(raidDetails[index].dateInput) + ", 0 ," + to_string(raidDetails[index].singleDKP) + ", " 
 									//RAIDERS                                           //RAIDERSAVG                //DKPSPENT
 				    + to_string(raidDetails[index].totalRaiders) + ", " + to_string(raidDetails[index].avgRaiders) + ", 0 ," 
 									//DKPRAID
-				    + to_string(raidDetails[index].raidDKP) + ");";
+				    + to_string(raidDetails[index].raidDKP) + ", " + to_string(raidDetails[index].totalDumps) + ");";
 			sql = &command[0u];
 			check = sqlite3_exec(db, sql, callbackno, 0, &zErrMsg);
 
@@ -2326,11 +2039,18 @@ void database::parseDump(string directory,string fileName[],int fileNum)
 				" DKPEARNED = DKPEARNED + " + to_string(raidDetails[index].singleDKP) +
 													    //TOTAL RAIDERS 2
 				",RAIDERS = RAIDERS + " + to_string(raidDetails[index].totalRaiders) +
-														//RAIDERSAVG 2 /2
-				",RAIDERSAVG = (RAIDERSAVG + " + to_string(raidDetails[index].avgRaiders) + ") / 2" + 
+
+				",DUMPS = DUMPS + " + to_string(raidDetails[index].totalDumps) +
 														//DKPRAID 2
 				",DKPRAID = DKPRAID + " + to_string(raidDetails[index].raidDKP) + 
+				
 														//SHARED DATE
+				" WHERE DATE = " + to_string(raidDetails[index].dateInput) + ";";
+			sql = &command[0u];
+			check = sqlite3_exec(db, sql, callbackno, 0, &zErrMsg);
+
+			command = "UPDATE RAID SET" 	
+				" RAIDERSAVG = (CAST(RAIDERS AS FLOAT) / DUMPS) "
 				" WHERE DATE = " + to_string(raidDetails[index].dateInput) + ";";
 			sql = &command[0u];
 			check = sqlite3_exec(db, sql, callbackno, 0, &zErrMsg);
@@ -2352,6 +2072,13 @@ void database::parseDump(string directory,string fileName[],int fileNum)
 
 
 
+// ugh - the prepared statements with select. wtf man, dont waste too much time here.
+// fixed up how dates are stored, all storage is done in YYYYMMDD to be ablt to properly order them
+//but all input/output/display is done MMDDYYYY since thats the normal way to view it. Check there arent 
+//rogue areas where thats swapped.
+
+//Besides the selects/prepared shitshow, its looking solid. maybe able to make a function for a few more things like forming a date
+//or other things that get repeated.
 void database::parseLoots(string directory, string fileName[], int fileNum)
 {
 	//variable declarations
@@ -2380,6 +2107,7 @@ void database::parseLoots(string directory, string fileName[], int fileNum)
 	int valMult[5] = {10000,1000,100,10,1};
 	int raidIndex = 0;
 	int raidCount = 0;
+	int check = 0;
 	bool leave = false;
 	bool found = false;
 	bool grats = false;
@@ -2419,9 +2147,9 @@ void database::parseLoots(string directory, string fileName[], int fileNum)
 			raidDetails[0].date = dateForm[0];
 
 
-			dateInput[0] = ((temp[place + 5] - 48) * 10000000) + ((temp[place + 6] - 48) * 1000000)
-				         + ((temp[place + 7] - 48) * 100000) + ((temp[place + 8] - 48) * 10000)
-					     + ((temp[place + 1] - 48) * 1000) + ((temp[place + 2] - 48) * 100) + ((temp[place + 3] - 48) * 10) + (temp[place + 4] - 48);
+			dateInput[0] = ((temp[place + 1] - 48) * 10000000) + ((temp[place + 2] - 48) * 1000000) + ((temp[place + 3] - 48) * 100000)
+				+ ((temp[place + 4] - 48) * 10000) + ((temp[place + 5] - 48) * 1000) + ((temp[place + 6] - 48) * 100)
+				+ ((temp[place + 7] - 48) * 10) + (temp[place + 8] - 48);
 
 			raidDetails[0].dateInput = dateInput[0];
 
@@ -2468,9 +2196,9 @@ void database::parseLoots(string directory, string fileName[], int fileNum)
 
 				if (dateForm[fileIndex] != dateForm[fileIndex - 1])
 				{
-					dateInput[fileIndex] = ((temp[place + 5] - 48) * 10000000) + ((temp[place + 6] - 48) * 1000000)
-					               	     + ((temp[place + 7] - 48) * 100000) + ((temp[place + 8] - 48) * 10000)
-						                 + ((temp[place + 1] - 48) * 1000) + ((temp[place + 2] - 48) * 100) + ((temp[place + 3] - 48) * 10) + (temp[place + 4] - 48);
+					dateInput[fileIndex] = ((temp[place + 1] - 48) * 10000000) + ((temp[place + 2] - 48) * 1000000) + ((temp[place + 3] - 48) * 100000)
+						+ ((temp[place + 4] - 48) * 10000) + ((temp[place + 5] - 48) * 1000) + ((temp[place + 6] - 48) * 100)
+						+ ((temp[place + 7] - 48) * 10) + (temp[place + 8] - 48);
 
 					raidDetails[raidIndex].dateInput = dateInput[fileIndex];
 
@@ -2535,6 +2263,8 @@ void database::parseLoots(string directory, string fileName[], int fileNum)
 		while (!readFrom.eof())
 		{
 			//Variable resets
+			purchase buy;
+			string getlineTest;
 			lootLine = "";
 			buyerName = "";
 			itemName = "";
@@ -2542,286 +2272,172 @@ void database::parseLoots(string directory, string fileName[], int fileNum)
 			dkpVal = 0;
 			index2 = 0;
 			leave = false;
+			bool modify = true;
 			grats = false;
-			find = ' ';
+			
 
 			readFrom >> find;
 
-			//find grats
-			while (!grats && readFrom)
-			{
-				while (toupper(find) != 'G')
-				{
-					readFrom >> find;
-					lootLine += find;
-				}
+			std::getline(readFrom,lootLine,'\n');
 
-				temp = find;
-				readFrom >> find;
-				lootLine += find;
-				if (toupper(find) == 'R')
+			buy = parseLootLine(lootLine,db);
+
+			//Handle an error if there is one
+			if (!buy.complete)
+			{
+				std::cout << "Original Text Line - " << endl << lootLine << endl;
+				std::cout << "Could not find a " << buy.errorFlag << " value!" << endl;
+				
+				
+				while (modify)
 				{
-					temp += find;
-					readFrom >> find;
-					lootLine += find;
-					if (toupper(find) == 'A')
+					std::cout << "Current Purchase Details :" << endl;
+					std::cout << "Item Name  : " << buy.itemName  << endl;
+					std::cout << "Buyer Name : " << buy.buyerName << endl;
+					std::cout << "DKP Value  : " << buy.dkpVal    << endl;
+
+					std::cout << "[Enter] to finalize transaction - Modify [I]tem, [B]uyer, [D]KP?";
+					std::getline(std::cin, input);
+					std::cout << endl;
+
+					if (input.empty())
 					{
-						temp += find;
-						readFrom >> find;
-						lootLine += find;
-						if (toupper(find) == 'T')
-						{
-							temp += find;
-							readFrom >> find;
-							lootLine += find;
-							if (toupper(find) == 'S' || toupper(find) == 'Z')
-							{
-								temp += find;
-								readFrom >> find;
-								lootLine += find;
-								if (toupper(find) == ' ')
-								{
-									grats = true;
-								}
-							}
-						}
+						modify = false;
 					}
-				}
-			}
-
-			//skip over grats
-			while (find != ' ' && readFrom)
-			{
-				readFrom >> find;
-				lootLine += find;
-			}
-
-			readFrom >> find;
-			lootLine += find;
-
-			//read buyerName
-			while (find != ' ' && readFrom)
-			{
-				buyerName += find;
-				readFrom >> find;
-				lootLine += find;
-			}
-
-			readFrom >> find;
-			lootLine += find;
-			temp = find;
-
-			//account for grats X (on/for/no word) Item ---
-			if (toupper(find) == 'F')
-			{
-				readFrom >> find;
-				temp += find;
-				lootLine += find;
-				if (toupper(find) == 'O')
-				{
-					readFrom >> find;
-					temp += find;
-					lootLine += find;
-					if (toupper(find) == 'R')
+					else if (toupper(input[0]) == 'I')
 					{
-						readFrom >> find;
-						temp += find;
-						lootLine += find;
-						if (toupper(find) == ' ')
-						{
-							lootLine += find;
-						}
-						else
-						{
-							readFrom >> find;
-							temp += find;
-							lootLine += find;
-						}
+						std::cout << "Enter the item name: ";
+						buy.itemName = getItem();
 					}
-				}
-			}
-			else if (toupper(find) == 'O')
-			{
-				readFrom >> find;
-				temp += find;
-				lootLine += find;
-				if (toupper(find) == 'N')
-				{
-					readFrom >> find;
-					temp += find;
-					lootLine += find;
-					if (toupper(find) == ' ')
+					else if (toupper(input[0]) == 'B')
 					{
-						lootLine += find;
+						std::cout << "Enter the player's name: ";
+						buy.buyerName = getName();
+						std::cout << endl;
+					}
+					else if (toupper(input[0]) == 'D')
+					{
+						std::cout << "Enter the dkp value: ";
+						buy.dkpVal = getDKP();
 					}
 					else
 					{
-						readFrom >> find;
-						temp += find;
-						lootLine += find;
+						std::cout << "No such option!" << endl;
 					}
 				}
+				std::cout << endl;
 
 			}
-			
-			if (toupper(find) != ' ')
-			{
-				itemName = temp;
-			}
-
-			readFrom >> find;
-			lootLine += find;
-
-			//read itemName
-			while (!isdigit(find) && readFrom)
-			{
-				itemName += find;
-				readFrom >> find;
-				lootLine += find;
-			}
-
-			itemName = itemName.substr(0,itemName.length() - 1);
-			int digits = 0;
-			//find the values for each digit of dkp
-			while (isdigit(find) && readFrom)
-			{
-				val[digits] = find - 48;
-				readFrom >> find;
-				lootLine += find;
-				digits++;
-			}
-			//add up the dkpVal
-			for (int index2 = 0; index2 < digits; index2++)
-			{
-				if (val[index2] == 0)
-				{
-
-				}
-				else
-				{
-					dkpVal += val[index2] * valMult[5 - digits + index2];
-				}
-				
-			}
-		
-
 
 			if (!readFrom.eof())
 			{
-				//cut out the leftover of last line from lootLine
-				while (toupper(find) != '\n' && readFrom)
-				{
-					readFrom >> find;
-					lootLine += find;
-				}
 
-				std::cout << "Log file line parsed as: " << endl;
-				std::cout << lootLine << endl;
-
+				//Set globalString to player's type
 				printError = true;
-				buyerName[0] = toupper(buyerName[0]);
-				command = "SELECT TYPE FROM PLAYER WHERE NAME = '" + buyerName + "';";
+				buy.buyerName[0] = toupper(buy.buyerName[0]);
+				command = "SELECT TYPE FROM PLAYER WHERE NAME = '" + buy.buyerName + "';";
 				sql = &command[0u];
 				check = sqlite3_exec(db, sql, callbackno, 0, &zErrMsg);
 
 				if (printError)
 				{
-					std::cout << "Error: Player not found! Would you like to add " << buyerName << ", or are they an [A]lt? (Y/N/A): ";
+					std::cout << "Error: Player not found! No entry for: " << buy.buyerName << endl <<
+					             "Would you like to [A]dd them, [C]hange the buyer or [S]kip this entry?";
 					std::getline(std::cin, input);
 					std::cout << endl;
 
+					//Menu options
 					input[0] = toupper(input[0]);
-					if (input[0] == 'Y')
+					if (input[0] == 'A')
 					{
-						addPlayer(buyerName);
+						addPlayer(buy.buyerName);
 					}
-					else if (input[0] == 'N')
+					else if (input[0] == 'S')
 					{
 						leave = true;
 					}
-					else if (input[0] == 'A')
+					else if (input[0] == 'C')
 					{
-						string main;
-						std::cout << "Whose alt is " << buyerName << "?: ";
-						std::getline(std::cin, main);
-						std::cout << endl;
-						buyerName = main + "\'s alt";
+						std::cout << "Who is the buyer?: ";
+						buy.buyerName = getName();
 					}
 					else
 					{
 						std::cout << "Error: No such Option!" << endl;
 					}
-
-					buyerName[0] = toupper(buyerName[0]);
-					command = "SELECT TYPE FROM PLAYER WHERE NAME = '" + buyerName + "';";
+					//Set globalString to player's type
+					buy.buyerName[0] = toupper(buy.buyerName[0]);
+					command = "SELECT TYPE FROM PLAYER WHERE NAME = '" + buy.buyerName + "';";
 					sql = &command[0u];
 					check = sqlite3_exec(db, sql, callbackno, 0, &zErrMsg);
 				}
 
 
 				string spaces = "";
-				int dkpTest = dkpVal;
+				int dkpTest = buy.dkpVal;
 				int dkpDigits = 0;
+				int secondDKP = buy.dkpVal;
 
 				//print a check and add items to DB
+				std::cout << buy.logLine << endl;
 				std::cout << "       Item                         DKP            Name           Type     " << endl;
 				std::cout << "---------------------------------------------------------------------------" << endl;
 
-				if (itemName.length() < columnWidth[0])
-				{
-					spaces.assign(columnWidth[0] - itemName.length(), ' ');
-					temp = itemName + spaces;
-					std::cout << "  " << temp;
-				}
 
-				if (dkpVal >= 0 && dkpVal < 10000)
-				{
-					if (globalString == "Box")
-					{
-						while (dkpTest > 0)
-						{
-							dkpTest = dkpTest / 10;
-							dkpDigits++;
-						}
 
-						dkpVal = dkpVal * 3;
-						dkpTest = dkpVal;
-						while (dkpTest > 0)
-						{
-							dkpTest = dkpTest / 10;
-							dkpDigits++;
-						}
-						spaces.assign(columnWidth[1] - (dkpDigits + 3), ' ');
-						std::cout << dkpVal / 3 << " (" << dkpVal << ")" << spaces;
-					}
-					else
-					{
-						if (dkpTest == 0)
-						{
-							dkpDigits = 1;
-						}
-						else
-						{
-							while (dkpTest > 0)
-							{
-								dkpTest = dkpTest / 10;
-								dkpDigits++;
-							}
-						}
-						spaces.assign(columnWidth[1] - dkpDigits, ' ');
-						std::cout << dkpVal << spaces;
-					}
-				}
+				temp = formColumn(buy.itemName, columnWidth[0]);
+				std::cout << "  " << temp;
 
-				if (buyerName.length() < 15)
-				{
-					spaces.assign(columnWidth[2] - buyerName.length(), ' ');
-					temp = buyerName + spaces;
-					std::cout << temp;
-				}
+				temp = formColumn(buy.dkpVal, columnWidth[1]);
+				std::cout << temp;
+
+				temp = formColumn(buy.buyerName,columnWidth[2]);
+				std::cout << temp;
+				
 
 				std::cout << globalString;
-				std::cout << endl << endl;
+				std::cout << endl;
+				dkpTest = secondDKP;
+				dkpDigits = 0;
+
+				if (buy.errorFlag == "x2")
+				{
+					temp = formColumn(buy.itemName,columnWidth[0]);
+					std::cout << "  " << temp;
+
+					temp = formColumn(secondDKP,columnWidth[1]);
+					std::cout << temp;
+
+					temp = formColumn(buy.buyerName, columnWidth[2]);
+					std::cout << temp;
+					std::cout << globalString;
+					std::cout << endl << endl;
+				}
+				else if (buy.errorFlag == "two winners")
+				{
+					//Finding secondBuyer's Type
+					buy.secondBuyer[0] = toupper(buy.secondBuyer[0]);
+					command = "SELECT TYPE FROM PLAYER WHERE NAME = '" + buy.secondBuyer + "';";
+					sql = &command[0u];
+					check = sqlite3_exec(db, sql, callbackno, 0, &zErrMsg);
+
+					temp = formColumn(buy.itemName,columnWidth[0]);
+					std::cout << "  " << temp;
+
+					temp = formColumn(secondDKP,columnWidth[1]);
+					std::cout << temp;
+					
+					temp = formColumn(buy.secondBuyer,columnWidth[2]);
+					std::cout << temp;
+					std::cout << globalString;
+					std::cout << endl << endl;
+				}
+				else
+				{
+					std::cout << endl;
+				}
+
+
 
 				//Confirm the item info to be added with user
 				while (!leave)
@@ -2833,23 +2449,39 @@ void database::parseLoots(string directory, string fileName[], int fileNum)
 
 					if (input.empty())
 					{
-						addItem(raidDetails[raidIndex].dateInput, buyerName, itemName, dkpVal);
+						if (buy.errorFlag == "x2")
+						{
+							std::cout << "Two Items Added for " << buy.buyerName << "!" << endl;
+							addItem(raidDetails[raidIndex].dateInput, buy.buyerName, buy.itemName, buy.dkpVal);
+							addItem(raidDetails[raidIndex].dateInput, buy.buyerName, buy.itemName, buy.dkpVal);
+						}
+						else if (buy.errorFlag == "two winners")
+						{
+							std::cout << "Added Items for " << buy.buyerName << " and " << buy.secondBuyer << "!" << endl;
+							addItem(raidDetails[raidIndex].dateInput, buy.buyerName, buy.itemName, buy.dkpVal);
+							addItem(raidDetails[raidIndex].dateInput, buy.secondBuyer, buy.itemName, secondDKP);
+						}
+						else
+						{
+							addItem(raidDetails[raidIndex].dateInput, buy.buyerName, buy.itemName, buy.dkpVal);
+						}
+						
 						std::cout << "Added!" << endl;
 						leave = true;
 
-						raidDetails[raidIndex].dkpSpent += dkpVal;
+						raidDetails[raidIndex].dkpSpent += buy.dkpVal;
 						raidDetails[raidIndex].items++;
 					}
 					else if (toupper(input[0]) == 'B')
 					{
-						dkpVal = dkpVal / 3;
-						std::cout << "DKP Triple Undone: " << dkpVal / 3;
-						std::cout << " to (" << dkpVal << ") for box! :" << endl;
-						addItem(raidDetails[raidIndex].dateInput, buyerName, itemName, dkpVal);
+						buy.dkpVal = buy.dkpVal / 3;
+						std::cout << "DKP Triple Undone: " << buy.dkpVal / 3;
+						std::cout << " to (" << buy.dkpVal << ") for box! :" << endl;
+						addItem(raidDetails[raidIndex].dateInput, buy.buyerName, buy.itemName, buy.dkpVal);
 						std::cout << "Added!" << endl;
 						leave = true;
 
-						raidDetails[raidIndex].dkpSpent += dkpVal;
+						raidDetails[raidIndex].dkpSpent += buy.dkpVal;
 						raidDetails[raidIndex].items++;
 					}
 					else if (toupper(input[0]) == 'M')
@@ -2863,55 +2495,18 @@ void database::parseLoots(string directory, string fileName[], int fileNum)
 							if (toupper(input[0]) == 'I')
 							{
 								std::cout << "Enter a new Item Name: ";
-								std::getline(std::cin, input);
-								std::cout << endl;
-								input[0] = toupper(input[0]);
-								char test = '~';
-								for (int index2 = 0; index2 < input.length(); index2++)
-								{
-									test = input[index2];
-									if (test == ' ')
-									{
-										input[index2 + 1] = toupper(input[index2 + 1]);
-									}
-
-								}
-								itemName = input;
+								buy.itemName = getItem();
 							}
 							else if (toupper(input[0]) == 'B')
 							{
 								std::cout << "Enter a new Buyer Name: ";
-								std::getline(std::cin, input);
-								std::cout << endl;
-								input[0] = toupper(input[0]);
-
-								buyerName = input;
+								buy.buyerName = getName();
 
 							}
 							else if (toupper(input[0]) == 'D')
 							{
 								std::cout << "Enter a DKP amount: ";
-								std::cin >> dkpVal;
-								std::cin.clear();
-								std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-								std::cout << endl;
-
-								while (std::cin.fail())
-								{
-									std::cout << "Error: Enter an integer " << endl;
-									std::cin.clear();
-									std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-									std::cin >> dkpVal;
-								}
-
-								while (dkpVal < 0 || dkpVal > 2500)
-								{
-									std::cout << "Error: Enter a valid DKP amount (0 - 2500): ";
-									std::cin >> dkpVal;
-									std::cin.clear();
-									std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
-									std::cout << endl;
-								}
+								buy.dkpVal = getDKP();
 							}
 							else
 							{
@@ -2919,69 +2514,32 @@ void database::parseLoots(string directory, string fileName[], int fileNum)
 							}
 
 							spaces = "";
-							int dkpTest = dkpVal;
+							int dkpTest = buy.dkpVal;
 							int dkpDigits = 0;
+
+							command = "SELECT TYPE FROM PLAYER WHERE NAME = '" + buy.buyerName + "';";
+							sql = &command[0u];
+							check = sqlite3_exec(db, sql, callbackno, 0, &zErrMsg);
 
 							std::cout << "       Item                         DKP            Name           Type     " << endl;
 							std::cout << "---------------------------------------------------------------------------" << endl;
 
-							if (itemName.length() < columnWidth[0])
-							{
-								spaces.assign(columnWidth[0] - itemName.length(), ' ');
-								temp = itemName + spaces;
-								std::cout << "  " << temp;
-							}
+							//check/orint the item name
 
-							if (dkpVal >= 0 && dkpVal < 10000)
-							{
-								if (globalString == "Box")
-								{
-									while (dkpTest > 0)
-									{
-										dkpTest = dkpTest / 10;
-										dkpDigits++;
-									}
+							temp = formColumn(buy.itemName, columnWidth[0]);
+							std::cout << "  " << temp;
 
-									dkpVal = dkpVal * 3;
-									dkpTest = dkpVal;
-									while (dkpTest > 0)
-									{
-										dkpTest = dkpTest / 10;
-										dkpDigits++;
-									}
-									spaces.assign(columnWidth[1] - (dkpDigits + 3), ' ');
-									std::cout << dkpVal / 3 << " (" << dkpVal << ")" << spaces;
-								}
-								else
-								{
-									if (dkpTest == 0)
-									{
-										dkpDigits = 1;
-									}
-									else
-									{
-										while (dkpTest > 0)
-										{
-											dkpTest = dkpTest / 10;
-											dkpDigits++;
-										}
-									}
-									spaces.assign(columnWidth[1] - dkpDigits, ' ');
-									std::cout << dkpVal << spaces;
-								}
-							}
+							temp = formColumn(buy.dkpVal, columnWidth[1]);
+							std::cout << temp;
 
-							if (buyerName.length() < 15)
-							{
-								spaces.assign(columnWidth[2] - buyerName.length(), ' ');
-								temp = buyerName + spaces;
-								std::cout << temp;
-							}
+							temp = formColumn(buy.buyerName, columnWidth[2]);
+							std::cout << temp;
 
 
+							std::cout << globalString;
+							std::cout << endl << endl;
 						}
-
-						raidDetails[raidIndex].dkpSpent += dkpVal;
+						raidDetails[raidIndex].dkpSpent += buy.dkpVal;
 						raidDetails[raidIndex].items++;
 
 					}
@@ -3014,7 +2572,7 @@ void database::parseLoots(string directory, string fileName[], int fileNum)
 	//Raid Summary and Adds/Updates the Raid Info
 	for (int index = 0; index < raidCount; index++)
 	{
-
+		//title heading
 		std::cout << "--------raidDetails Report---------" << endl;
 		std::cout << "Raid Date   : " << raidDetails[index].date << endl;
 		std::cout << "Date Num    : " << raidDetails[index].dateInput << endl << endl;
@@ -3023,6 +2581,7 @@ void database::parseLoots(string directory, string fileName[], int fileNum)
 		std::cout << "Raid DKP    : " << raidDetails[index].dkpSpent << endl;
 		std::cout << "-----------------------------------" << endl;
 
+		//See if Raid Exists
 		printError = true;
 		command = "SELECT * FROM RAID WHERE date = " + to_string(raidDetails[index].dateInput) + ";";
 		sql = &command[0u];
@@ -3031,6 +2590,7 @@ void database::parseLoots(string directory, string fileName[], int fileNum)
 		//Check for existing raid to modify, or add a new raid
 		if (printError)
 		{
+			//Make new Raid
 			//"INSERT INTO RAID(DATE,ITEMS,DKPEARNED,RAIDERS,RAIDERSAVG, DKPSPENT, DKPRAID) VALUES (12202017, 47, 158, 52, 48.5, 7425, 8216);";
 			command = "INSERT INTO RAID(DATE,ITEMS,DKPEARNED,RAIDERS,RAIDERSAVG,DKPSPENT,DKPRAID) VALUES (" \
 				//DATE                                                //ITEMS                         //DKPEARNED
@@ -3044,6 +2604,7 @@ void database::parseLoots(string directory, string fileName[], int fileNum)
 		}
 		else
 		{
+			//Update existing raid
 			command = "UPDATE RAID SET "				
 				      "ITEMS = ITEMS + " + to_string(raidDetails[index].items) +
 				      ",DKPSPENT = DKPSPENT + " + to_string(raidDetails[index].dkpSpent) +
@@ -3313,7 +2874,8 @@ void database::printDumpSummary(int date)
 	command = "SELECT * FROM RAIDDUMP WHERE DATE = " + to_string(date) + " ORDER BY TIME DESC;";
 	sql = &command[0u];
 	check = sqlite3_exec(db, sql, callbackdumpsummary, 0, &zErrMsg);
-
+	std::cout << globalInt << "      ||" << endl;
+	globalInt = 0;
 	std::cout << "||                                                                                     ||" << endl;
 	std::cout << "||*************************************************************************************||" << endl;
 }

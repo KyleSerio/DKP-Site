@@ -56,14 +56,7 @@ int callbackdump(void *data, int argc, char **argv, char **azColName)
 						temp = "0" + temp;
 					}
 
-					for (int index2 = 0; index2 < temp.length(); index2++)
-					{
-						if (index2 == 2 || index2 == 4)
-						{
-							dateForm += "/";
-						}
-						dateForm += temp[index2];
-					}
+					dateForm = temp.substr(4, 2) + "/" + temp.substr(6, 2) + "/" + temp.substr(0, 4);
 
 					temp = dateForm;
 				}
